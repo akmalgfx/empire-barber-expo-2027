@@ -1635,11 +1635,14 @@ p, li, dd { text-wrap: pretty; }
   .nav .btn-sm { display: none; }
 
   .hero { min-height: 640px; }
-  .hero-inner { padding-bottom: 26px; }
+  .hero-inner { padding-bottom: 44px; }
   .hero-title { font-size: clamp(80px, 24vw, 200px); }
   .hero-kicker { font-size: 0.34em; }
+  /* nowrap matters: a wrapping column sizes each column to its widest item,
+     which pushed the countdown and buttons past the right edge */
   .hero-bar {
     flex-direction: column;
+    flex-wrap: nowrap;
     align-items: stretch;
     gap: 18px;
     margin-top: 18px;
@@ -1647,8 +1650,8 @@ p, li, dd { text-wrap: pretty; }
   }
   .countdown { justify-content: space-between; }
   .cd-unit { flex: 1; min-width: 0; padding: 0 6px; }
-  .hero-ctas { justify-content: stretch; }
-  .hero-ctas .btn { flex: 1; }
+  .hero-ctas { flex-wrap: wrap; justify-content: stretch; }
+  .hero-ctas .btn { flex: 1 1 auto; }
 
   .acts { height: auto !important; }
   .acts-sticky {
