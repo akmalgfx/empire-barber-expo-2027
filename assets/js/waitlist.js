@@ -76,52 +76,61 @@
   })();
 
   /* ---------- Part II recap film ----------
-     Muted highlight loop while it's on screen; tap plays the full recap
-     with sound in the same frame. Ending returns it to the loop. */
+     Muted loop while on screen. Bottom-left restarts, bottom-right toggles
+     sound, tapping the picture pauses or resumes. */
   (() => {
     const film = $('[data-film]');
     if (!film) return;
     const video = $('video', film);
-    const play = $('[data-film-play]', film);
-    let full = false;
+    const muteBtn = $('[data-film-mute]', film);
+    const restartBtn = $('[data-film-restart]', film);
     let onScreen = false;
+    let userPaused = reduceMotion; // reduced motion: start on the still frame, play on tap
 
-    const startPreview = () => {
-      full = false;
-      film.classList.remove('is-playing');
-      video.controls = false;
-      video.muted = true;
-      video.loop = true;
-      if (reduceMotion) { video.removeAttribute('src'); video.load(); return; } // poster only
-      if (!video.src.endsWith(video.dataset.preview)) video.src = video.dataset.preview;
-      if (onScreen) video.play().catch(() => {});
+    const ensureSrc = () => { if (!video.src) video.src = video.dataset.src; };
+    const sync = () => film.classList.toggle('is-paused', video.paused);
+    const play = () => { ensureSrc(); video.play().catch(sync); };
+
+    video.addEventListener('play', sync);
+    video.addEventListener('pause', sync);
+
+    const togglePlay = () => {
+      if (video.paused) { userPaused = false; play(); }
+      else { userPaused = true; video.pause(); }
     };
-
-    play.addEventListener('click', () => {
-      full = true;
-      film.classList.add('is-playing');
-      video.src = video.dataset.full; // the 21 MB file loads only now
-      video.loop = false;
-      video.muted = false;
-      video.controls = true;
-      video.play().catch(() => {});
-      video.focus({ preventScroll: true });
+    video.addEventListener('click', togglePlay);
+    // Keyboard users get the same pause control: focus the video, press Space or Enter
+    video.tabIndex = 0;
+    video.addEventListener('keydown', (e) => {
+      if (e.key === ' ' || e.key === 'Enter' || e.key === 'k') { e.preventDefault(); togglePlay(); }
     });
-    video.addEventListener('ended', () => { if (full) startPreview(); });
 
+    restartBtn.addEventListener('click', () => {
+      ensureSrc();
+      video.currentTime = 0;
+      userPaused = false;
+      play();
+    });
+
+    muteBtn.addEventListener('click', () => {
+      video.muted = !video.muted;
+      const soundOn = !video.muted;
+      muteBtn.setAttribute('aria-pressed', String(soundOn));
+      muteBtn.setAttribute('aria-label', soundOn ? 'Mute video' : 'Unmute video');
+      if (soundOn && video.paused) { userPaused = false; play(); }
+    });
+
+    // Only play while visible; never resume something the viewer paused
     new IntersectionObserver(([entry]) => {
       onScreen = entry.isIntersecting;
-      if (full) { if (!onScreen) video.pause(); return; }
-      if (reduceMotion) return;
-      if (onScreen) {
-        if (!video.src) video.src = video.dataset.preview;
-        video.play().catch(() => {});
-      } else {
-        video.pause();
-      }
+      if (onScreen && !userPaused) play();
+      else if (!onScreen && !video.paused) video.pause();
     }, { threshold: 0.25 }).observe(film);
 
-    startPreview();
+    // Start right away if it's already on screen; don't wait for the observer's first report
+    const r = film.getBoundingClientRect();
+    if (!userPaused && r.top < innerHeight && r.bottom > 0) play();
+    sync();
   })();
 
   /* ---------- Waitlist form ---------- */
