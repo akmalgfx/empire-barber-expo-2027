@@ -1,0 +1,393 @@
+/* =========================================================
+   Empire Barber Expo 2027 · Waitlist
+   One quiet screen: still stage photo, one material card,
+   one action. Same ink + gold as the main page.
+   ========================================================= */
+
+:root {
+  color-scheme: dark;
+
+  --ink: #0a0907;
+  --bone: #f1e9d8;
+  --mute: rgba(241, 233, 216, 0.68);
+  --faint: rgba(241, 233, 216, 0.56);
+  --line: rgba(241, 233, 216, 0.14);
+  --line-gold: rgba(217, 178, 94, 0.4);
+  --gold: #d9b25e;
+  --gold-hi: #f8e3a8;
+  --gold-metal: linear-gradient(172deg, #fff2c9 0%, #eccb7a 26%, #b98b35 52%, #f1d389 74%, #9a7228 100%);
+  --material: rgba(22, 19, 14, 0.58);
+  --danger: #ff8a7a;
+
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+
+  --sans: "Archivo", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --serif: "Instrument Serif", Georgia, "Times New Roman", serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { background: var(--ink); -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  min-height: 100svh;
+  background: var(--ink);
+  color: var(--bone);
+  font-family: var(--sans);
+  font-size: 1rem;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+[hidden] { display: none !important; } /* .field and .done set display, which would otherwise beat the hidden attribute */
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; text-decoration: none; }
+p, h1 { margin: 0; }
+a, button { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+::selection { background: var(--gold); color: var(--ink); }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---------- Backdrop: a still, dimmed stage. No motion behind the content. ---------- */
+
+/* z-index 0 (not -1): a negative layer would sit under body's own background and vanish */
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+.backdrop img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(3px) saturate(0.7) brightness(0.38);
+  transform: scale(1.06);
+}
+.backdrop::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 45% at 50% 0%, rgba(217, 178, 94, 0.16), transparent 70%),
+    radial-gradient(ellipse 90% 70% at 50% 55%, transparent 0%, rgba(10, 9, 7, 0.7) 75%),
+    linear-gradient(180deg, rgba(10, 9, 7, 0.2), rgba(10, 9, 7, 0.85));
+}
+
+/* ---------- Page frame ---------- */
+
+.page {
+  position: relative;
+  z-index: 1;
+  min-height: 100svh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  padding:
+    max(20px, env(safe-area-inset-top))
+    max(20px, env(safe-area-inset-right))
+    max(20px, env(safe-area-inset-bottom))
+    max(20px, env(safe-area-inset-left));
+}
+
+.brand a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  font-stretch: 112%;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.brand img { width: 40px; height: 40px; object-fit: contain; }
+
+/* ---------- Stage ---------- */
+
+.stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding-block: 48px;
+  text-align: center;
+}
+
+/* One entrance, once. Rises a few pixels and fades; nothing loops. */
+.stage > * {
+  animation: rise 700ms var(--ease-out) both;
+  animation-delay: calc(var(--i, 0) * 70ms + 80ms);
+}
+@keyframes rise {
+  from { opacity: 0; transform: translateY(10px); }
+}
+
+.eyebrow {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  font-stretch: 125%;
+  letter-spacing: 0.22em; /* small caps want open tracking */
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: 900;
+  font-stretch: 62%;
+  font-size: clamp(4.5rem, 19vw, 9.5rem);
+  line-height: 0.86;       /* large type: tight leading */
+  letter-spacing: -0.01em; /* and slightly negative tracking */
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+.title em { font-style: normal; }
+.gold {
+  background: var(--gold-metal);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.title-kicker {
+  margin-top: 0.1em;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-stretch: 100%;
+  font-size: 0.3em;
+  line-height: 1.1;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--gold-hi);
+}
+
+.lede {
+  max-width: 40ch;
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  color: var(--mute);
+  text-wrap: pretty;
+}
+
+/* ---------- Countdown: a single material surface ---------- */
+
+.countdown {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 100%;
+  padding: 18px 8px 16px;
+  border-radius: 20px;
+  background: var(--material);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  backdrop-filter: blur(20px) saturate(140%);
+  box-shadow: inset 0 1px 0 rgba(255, 240, 200, 0.08), inset 0 0 0 1px var(--line), 0 20px 50px -24px rgba(0, 0, 0, 0.9);
+}
+.cd-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+.cd-unit + .cd-unit { box-shadow: -1px 0 0 var(--line); }
+.cd-num {
+  display: flex;
+  font-weight: 800;
+  font-stretch: 62%;
+  font-size: clamp(2.5rem, 10vw, 3.75rem);
+  line-height: 1;
+  letter-spacing: -0.01em;
+  font-variant-numeric: tabular-nums;
+}
+.digit {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+.digit > span {
+  display: block;
+  background: var(--gold-metal);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.digit > span:not(:last-child) { position: absolute; inset: 0; }
+.cd-label {
+  font-size: 0.625rem;
+  font-weight: 600;
+  font-stretch: 120%;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+/* ---------- Sign-up ---------- */
+
+.signup { width: 100%; }
+
+.field {
+  display: flex;
+  gap: 6px;
+  padding: 6px;
+  border-radius: 18px;
+  background: var(--material);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  backdrop-filter: blur(20px) saturate(140%);
+  box-shadow: inset 0 0 0 1px var(--line);
+  transition: box-shadow 200ms ease;
+}
+.field:focus-within { box-shadow: inset 0 0 0 1px var(--line-gold), 0 0 0 4px rgba(217, 178, 94, 0.12); }
+.field.is-invalid { box-shadow: inset 0 0 0 1px rgba(255, 138, 122, 0.6); }
+
+.field input[type="email"] {
+  flex: 1;
+  min-width: 0;
+  height: 48px;
+  padding: 0 14px;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  color: var(--bone);
+  font: inherit;
+  font-size: 1rem; /* 16px stops iOS from zooming on focus */
+}
+.field input[type="email"]::placeholder { color: var(--faint); }
+.field input[type="email"]:focus { outline: none; } /* the field ring above replaces it */
+
+.trap { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+
+.submit {
+  flex: none;
+  height: 48px;
+  padding: 0 20px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--gold-metal);
+  color: #1b1307;
+  font: inherit;
+  font-size: 0.75rem;
+  font-weight: 800;
+  font-stretch: 115%;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  /* Press feedback is instant on pointer-down; release eases back */
+  transition: transform 160ms var(--ease-out), filter 200ms ease, opacity 200ms ease;
+}
+.submit:active { transform: scale(0.97); transition-duration: 80ms; }
+.submit:focus-visible { outline-offset: -4px; outline-color: #1b1307; }
+.submit[aria-busy="true"] { opacity: 0.7; cursor: progress; }
+@media (hover: hover) and (pointer: fine) {
+  .submit:hover { filter: brightness(1.08); }
+}
+
+.done {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 60px;
+  padding: 12px 18px;
+  border-radius: 18px;
+  background: var(--material);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  box-shadow: inset 0 0 0 1px var(--line-gold);
+  text-align: left;
+  color: var(--mute);
+  animation: materialize 420ms var(--ease-out) both;
+}
+.done strong { color: var(--bone); font-weight: 700; }
+.done-mark {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--gold-metal);
+  color: #1b1307;
+}
+@keyframes materialize {
+  from { opacity: 0; transform: scale(0.97); filter: blur(4px); }
+}
+
+.status {
+  min-height: 1.5em;
+  margin-top: 10px;
+  font-size: 0.875rem;
+  color: var(--mute);
+}
+.status.is-error { color: var(--danger); }
+.status a { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
+
+/* ---------- Footer ---------- */
+
+.foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 24px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  font-size: 0.8125rem;
+  color: var(--faint);
+}
+.foot nav { display: flex; gap: 20px; }
+.foot a {
+  font-weight: 600;
+  color: var(--mute);
+  transition: color 200ms ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  .foot a:hover { color: var(--gold); }
+}
+
+/* ---------- Narrow screens ---------- */
+
+@media (max-width: 480px) {
+  .stage { gap: 22px; padding-block: 32px; }
+  .field { flex-direction: column; }
+  .submit { width: 100%; }
+  .cd-label { letter-spacing: 0.12em; }
+  .foot { justify-content: center; text-align: center; }
+}
+
+/* ---------- Accessibility preferences ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .stage > * { animation: fade 300ms ease both; animation-delay: 0ms; }
+  .done { animation: fade 200ms ease both; }
+  @keyframes fade { from { opacity: 0; } }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .countdown, .field, .done {
+    background: #17140f;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}
+
+@media (prefers-contrast: more) {
+  :root { --line: rgba(241, 233, 216, 0.5); --faint: rgba(241, 233, 216, 0.8); }
+}
