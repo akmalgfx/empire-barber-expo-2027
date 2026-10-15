@@ -1,0 +1,1090 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Empire Barber Expo 2027 · Vendor &amp; Sponsor Overview</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="../assets/logos/empire-badge.webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    /* =========================================================
+       Empire Barber Expo 2027 · Vendor & Sponsor Deck
+       Same system as the site: dark stage, gold light, concert poster type.
+       One slide = 1920 × 1080. Print to PDF for the shareable deck.
+       ========================================================= */
+
+    :root {
+      --ink: #0a0907;
+      --ink-2: #110f0b;
+      --ink-3: #1a1712;
+      --bone: #f1e9d8;
+      --mute: rgba(241, 233, 216, 0.68);
+      --faint: rgba(241, 233, 216, 0.5);
+      --line: rgba(241, 233, 216, 0.14);
+      --line-gold: rgba(217, 178, 94, 0.42);
+
+      --gold: #d9b25e;
+      --gold-hi: #f8e3a8;
+      --gold-lo: #8a6624;
+      --gold-metal: linear-gradient(172deg, #fff2c9 0%, #eccb7a 26%, #b98b35 52%, #f1d389 74%, #9a7228 100%);
+      --gold-sheet: linear-gradient(135deg, #f6dc98 0%, #e3bd6a 30%, #c49544 58%, #e9c779 82%, #b48733 100%);
+
+      --sans: "Archivo", system-ui, -apple-system, "Segoe UI", sans-serif;
+      --serif: "Instrument Serif", Georgia, "Times New Roman", serif;
+
+      --pad-x: 120px;
+      --pad-y: 100px;
+      --notch: 22px;
+    }
+
+    @page { size: 1920px 1080px; margin: 0; }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; background: #050403; }
+    body {
+      color: var(--bone);
+      font-family: var(--sans);
+      font-size: 26px;
+      line-height: 1.45;
+      -webkit-font-smoothing: antialiased;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    p, h1, h2, h3, ul, dl, dd, figure { margin: 0; }
+    ul { padding: 0; list-style: none; }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    /* ---------- Slide frame ---------- */
+
+    .slide {
+      position: relative;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      isolation: isolate;
+      background: var(--ink);
+      padding: var(--pad-y) var(--pad-x);
+      break-after: page;
+      page-break-after: always;
+    }
+    .slide:last-child { break-after: auto; page-break-after: auto; }
+
+    /* Film grain, static so it prints */
+    .slide::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 20;
+      pointer-events: none;
+      opacity: 0.06;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    .foot {
+      position: absolute;
+      left: var(--pad-x);
+      right: var(--pad-x);
+      bottom: 52px;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 15px;
+      font-weight: 600;
+      font-stretch: 125%;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .foot img { width: 52px; height: 52px; object-fit: contain; opacity: 0.9; }
+    .foot a { text-decoration: underline; text-underline-offset: 4px; }
+
+    /* ---------- Type ---------- */
+
+    .display {
+      font-family: var(--sans);
+      font-weight: 900;
+      font-stretch: 62%;
+      text-transform: uppercase;
+      line-height: 0.86;
+      letter-spacing: -0.005em;
+    }
+    .h-title { font-size: 128px; }
+    .h-xl { font-size: 176px; }
+
+    .eyebrow,
+    .label {
+      font-size: 17px;
+      font-weight: 600;
+      font-stretch: 125%;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      line-height: 1.3;
+    }
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 30px;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 44px;
+      height: 1px;
+      background: currentColor;
+    }
+
+    .lede { font-size: 28px; line-height: 1.5; color: var(--mute); }
+
+    .gold-text {
+      font-style: normal;
+      background: var(--gold-metal);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .gold { color: var(--gold); }
+    .serif-gold {
+      font-family: var(--serif);
+      font-style: italic;
+      font-weight: 400;
+      font-stretch: 100%;
+      text-transform: none;
+      letter-spacing: -0.01em;
+      color: var(--gold);
+    }
+
+    .price {
+      font-weight: 900;
+      font-stretch: 62%;
+      line-height: 0.84;
+      letter-spacing: -0.01em;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Notched chip, same cut as the site's buttons */
+    .chip {
+      --n: 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      height: 52px;
+      padding: 0 24px;
+      font-size: 16px;
+      font-weight: 700;
+      font-stretch: 118%;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      clip-path: polygon(var(--n) 0, 100% 0, 100% calc(100% - var(--n)), calc(100% - var(--n)) 100%, 0 100%, 0 var(--n));
+    }
+    .chip-gold {
+      background: var(--gold-metal);
+      color: #1b1307;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55), inset 0 -2px 0 rgba(90, 60, 10, 0.35);
+    }
+    .chip-ghost {
+      color: var(--bone);
+      background: rgba(241, 233, 216, 0.06);
+      box-shadow: inset 0 0 0 1px rgba(241, 233, 216, 0.3);
+    }
+
+    /* Notched panel */
+    .card {
+      position: relative;
+      background: var(--ink-2);
+      clip-path: polygon(var(--notch) 0, 100% 0, 100% calc(100% - var(--notch)), calc(100% - var(--notch)) 100%, 0 100%, 0 var(--notch));
+    }
+    .card-line { box-shadow: inset 0 0 0 1px var(--line); }
+    .card-gold-line { box-shadow: inset 0 0 0 1px var(--line-gold); }
+
+    /* Ticket-stub perforation */
+    .perf {
+      height: 1px;
+      background: repeating-linear-gradient(90deg, var(--line-gold) 0 8px, transparent 8px 16px);
+    }
+    .perf-v {
+      width: 1px;
+      background: repeating-linear-gradient(180deg, var(--line-gold) 0 8px, transparent 8px 16px);
+    }
+
+    /* ---------- Photo treatment (the site's warm grade) ---------- */
+
+    .photo {
+      position: relative;
+      overflow: hidden;
+      background: var(--ink-3);
+    }
+    .photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: contrast(1.08) saturate(0.85);
+    }
+    .photo::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: #3b2a0b;
+      mix-blend-mode: color;
+      opacity: 0.4;
+      pointer-events: none;
+    }
+    .photo figcaption {
+      position: absolute;
+      left: 22px;
+      bottom: 18px;
+      z-index: 2;
+      font-size: 13px;
+      font-weight: 600;
+      font-stretch: 120%;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(241, 233, 216, 0.75);
+    }
+    .notched { clip-path: polygon(var(--notch) 0, 100% 0, 100% calc(100% - var(--notch)), calc(100% - var(--notch)) 100%, 0 100%, 0 var(--notch)); }
+
+    .bleed {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+    }
+    .bleed .photo { position: absolute; inset: 0; }
+
+    .beam {
+      position: absolute;
+      top: -12%;
+      width: 70%;
+      height: 130%;
+      transform-origin: 50% 0;
+      background: conic-gradient(from 166deg at 50% 0,
+          transparent 0deg,
+          rgba(248, 227, 168, 0.18) 12deg,
+          rgba(255, 240, 200, 0.3) 14deg,
+          rgba(248, 227, 168, 0.18) 16deg,
+          transparent 28deg);
+      filter: blur(6px);
+      mix-blend-mode: screen;
+      pointer-events: none;
+    }
+
+    /* =========================================================
+       01 · Cover
+       ========================================================= */
+    .cover { display: flex; flex-direction: column; justify-content: flex-end; padding-bottom: 150px; }
+    .cover .shade {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(70% 90% at 72% 20%, rgba(10, 9, 7, 0.1) 0%, rgba(10, 9, 7, 0.6) 60%, rgba(10, 9, 7, 0.9) 100%),
+        linear-gradient(0deg, rgba(10, 9, 7, 0.96) 0%, rgba(10, 9, 7, 0.55) 45%, rgba(10, 9, 7, 0.2) 75%);
+    }
+    .cover .badge {
+      position: absolute;
+      top: 86px;
+      right: var(--pad-x);
+      width: 250px;
+      filter: drop-shadow(0 18px 40px rgba(0, 0, 0, 0.6));
+    }
+    .cover .chip { align-self: flex-start; margin-bottom: 40px; }
+    .cover h1 { font-size: 216px; }
+    .cover h1 em { filter: drop-shadow(0 4px 24px rgba(10, 9, 7, 0.6)); }
+    .cover .sub {
+      margin-top: 34px;
+      font-size: 26px;
+      font-weight: 700;
+      font-stretch: 125%;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+    }
+    .cover-bar {
+      display: flex;
+      align-items: flex-end;
+      gap: 40px;
+      margin-top: 52px;
+      padding-top: 36px;
+      border-top: 1px solid var(--line);
+    }
+    .cover-date { font-size: 112px; }
+    .cover-where {
+      padding-bottom: 10px;
+      font-size: 18px;
+      font-weight: 600;
+      font-stretch: 120%;
+      letter-spacing: 0.22em;
+      line-height: 1.5;
+      text-transform: uppercase;
+      color: var(--mute);
+    }
+
+    /* =========================================================
+       02 · Theme
+       ========================================================= */
+    .theme { display: grid; grid-template-columns: 1fr 820px; gap: 100px; align-items: center; padding-bottom: 150px; }
+    .theme h2 { font-size: 210px; }
+    .theme .of { margin-top: 30px; font-size: 76px; line-height: 1; color: var(--bone); }
+    .theme .lede { margin-top: 36px; max-width: 34ch; font-size: 26px; }
+    .fusion {
+      position: relative;
+      height: 800px;
+    }
+    .fusion .photo { position: absolute; inset: 0; }
+    .fusion .a { clip-path: polygon(0 0, 66% 0, 34% 100%, 0 100%); }
+    .fusion .b { clip-path: polygon(66% 0, 100% 0, 100% 100%, 34% 100%); }
+    /* Each half crops its own photo so the subject sits inside its side of the seam */
+    .fusion .a img { width: 66%; }
+    .fusion .b img { width: 66%; margin-left: 34%; }
+    .fusion .seam {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      background: linear-gradient(to bottom right, transparent calc(50% - 2px), var(--gold) calc(50% - 2px), var(--gold) calc(50% + 2px), transparent calc(50% + 2px));
+      clip-path: polygon(64% 0, 68% 0, 36% 100%, 32% 100%);
+      background: var(--gold-metal);
+    }
+    .fusion .tag {
+      position: absolute;
+      z-index: 4;
+      bottom: 24px;
+      font-size: 14px;
+      font-weight: 700;
+      font-stretch: 120%;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--bone);
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8);
+    }
+
+    /* =========================================================
+       03 · Event overview
+       ========================================================= */
+    .head-row {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 40px;
+      margin-bottom: 54px;
+    }
+    .stub {
+      display: flex;
+      align-items: stretch;
+      height: 64px;
+      font-size: 16px;
+      font-weight: 700;
+      font-stretch: 118%;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+      box-shadow: inset 0 0 0 1px var(--line-gold);
+      background: rgba(217, 178, 94, 0.07);
+    }
+    .stub > span { display: flex; align-items: center; padding: 0 26px; }
+    .stub > span:first-child { color: var(--gold); }
+    .days { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+    .day { display: grid; grid-template-rows: 210px auto; height: 690px; }
+    .day .photo { height: 210px; }
+    .day-body { padding: 32px 48px 0; }
+    .day h3 { font-size: 76px; margin: 12px 0 20px; }
+    .day h3 + ul li {
+      padding: 10px 0;
+      border-top: 1px solid var(--line);
+      font-size: 23px;
+      line-height: 1.3;
+      color: var(--mute);
+    }
+    .day b { color: var(--gold); font-weight: 700; }
+    .new {
+      display: inline-block;
+      padding: 3px 10px 2px;
+      margin-left: 4px;
+      background: var(--gold-metal);
+      color: #1b1307;
+      letter-spacing: 0.18em;
+    }
+
+    /* =========================================================
+       04 · Why a second education day
+       ========================================================= */
+    .why { display: grid; grid-template-columns: 760px 1fr; padding: 0; }
+    .why > .photo { height: 1080px; }
+    .why > .photo::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      background: linear-gradient(90deg, rgba(10, 9, 7, 0) 55%, var(--ink) 100%);
+    }
+    .why-copy { padding: 90px var(--pad-x) 160px 80px; display: flex; flex-direction: column; justify-content: center; }
+    .why h2 { font-size: 128px; }
+    .points { margin-top: 50px; display: grid; gap: 0; }
+    .point {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      padding: 28px 0;
+      border-top: 1px solid var(--line-gold);
+    }
+    .point .no { font-size: 64px; font-weight: 900; font-stretch: 62%; line-height: 0.9; }
+    .point h3 { font-size: 34px; font-weight: 800; font-stretch: 100%; margin-bottom: 8px; }
+    .point p { font-size: 25px; color: var(--mute); max-width: 36ch; }
+
+    /* =========================================================
+       05 · Floor plan
+       ========================================================= */
+    .plan { padding-top: 84px; }
+    .plan .head-row { margin-bottom: 32px; }
+    .plan .h-title { font-size: 110px; }
+    .plan-sheet {
+      display: grid;
+      place-items: center;
+      height: 700px;
+      padding: 32px 44px;
+      background: var(--bone);
+      clip-path: polygon(var(--notch) 0, 100% 0, 100% calc(100% - var(--notch)), calc(100% - var(--notch)) 100%, 0 100%, 0 var(--notch));
+    }
+    .plan-sheet img { width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply; }
+    .plan-sheet { grid-template: minmax(0, 1fr) / minmax(0, 1fr); }
+
+    /* =========================================================
+       06 · By the numbers (gold sheet, like the site's ticker band)
+       ========================================================= */
+    .numbers { background: var(--gold-sheet); color: #1b1307; display: flex; flex-direction: column; justify-content: center; padding-bottom: 160px; }
+    .numbers .bg-photo {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      mix-blend-mode: multiply;
+      opacity: 0.2;
+    }
+    .numbers .bg-photo img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.2); }
+    .numbers .eyebrow { color: #1b1307; }
+    .numbers h2 { font-size: 150px; margin-bottom: 110px; }
+    .stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 80px; }
+    .stat { padding-top: 34px; border-top: 3px solid #1b1307; }
+    .stat .num { font-size: 184px; font-weight: 900; font-stretch: 62%; line-height: 0.84; letter-spacing: -0.01em; }
+    .stat p { margin-top: 26px; font-size: 28px; font-weight: 700; }
+    .numbers .foot { color: #1b1307; }
+
+    /* =========================================================
+       07 · Highlight video
+       ========================================================= */
+    .video { display: flex; flex-direction: column; justify-content: flex-end; padding-bottom: 170px; }
+    .video .shade {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(0deg, rgba(10, 9, 7, 0.95) 0%, rgba(10, 9, 7, 0.5) 40%, rgba(10, 9, 7, 0.15) 70%),
+        linear-gradient(90deg, rgba(10, 9, 7, 0.7) 0%, rgba(10, 9, 7, 0) 60%);
+    }
+    .video h2 { font-size: 200px; }
+    .play {
+      position: absolute;
+      top: 50%;
+      left: 76%;
+      width: 200px;
+      height: 200px;
+      margin: -100px 0 0 -100px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: rgba(10, 9, 7, 0.45);
+      box-shadow: inset 0 0 0 2px var(--gold), 0 0 0 18px rgba(217, 178, 94, 0.12);
+      color: var(--gold-hi);
+    }
+    .video .chip { align-self: flex-start; margin-top: 48px; height: 68px; padding: 0 34px; font-size: 19px; }
+
+    /* =========================================================
+       08 · Educators
+       ========================================================= */
+    .edu { display: grid; grid-template-columns: 560px 1fr; gap: 80px; align-items: center; padding-bottom: 140px; }
+    .edu h2 { font-size: 136px; }
+    .rule { width: 120px; height: 4px; margin: 48px 0 40px; background: var(--gold-metal); }
+    .edu .lineup {
+      height: 790px;
+      overflow: hidden;
+      box-shadow: inset 0 0 0 1px var(--line-gold);
+    }
+    .edu .lineup img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 45%; transform: scale(1.04); }
+
+    /* =========================================================
+       09 · Booth rates
+       ========================================================= */
+    .rates .bg-top {
+      position: absolute;
+      inset: 0 0 auto auto;
+      width: 1100px;
+      height: 620px;
+      z-index: -1;
+    }
+    .rates .bg-top .photo { position: absolute; inset: 0; }
+    .rates .bg-top::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      background:
+        linear-gradient(90deg, var(--ink) 0%, rgba(10, 9, 7, 0.5) 45%, rgba(10, 9, 7, 0.3) 100%),
+        linear-gradient(0deg, var(--ink) 0%, rgba(10, 9, 7, 0) 60%);
+    }
+    .rate-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 70px; }
+    .rate { padding: 52px 60px 46px; }
+    .rate.feat { box-shadow: inset 0 0 0 2px var(--gold); background: linear-gradient(180deg, rgba(217, 178, 94, 0.12), rgba(17, 15, 11, 1) 70%); }
+    .rate .price { font-size: 220px; margin: 22px 0 40px; }
+    .rate .perf { margin-bottom: 30px; }
+    .rate .dbl { font-size: 30px; font-weight: 600; color: var(--mute); }
+    .rate .dbl b { color: var(--gold-hi); font-weight: 800; }
+    .notice {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      margin-top: 40px;
+      padding: 28px 40px;
+      font-size: 26px;
+      background: rgba(217, 178, 94, 0.08);
+      box-shadow: inset 4px 0 0 var(--gold);
+    }
+    .notice b { color: var(--gold); }
+
+    /* =========================================================
+       10 · What's included
+       ========================================================= */
+    .incl { display: grid; grid-template-columns: 1fr 520px; padding: 0; }
+    .incl-copy { padding: var(--pad-y) 80px 150px var(--pad-x); }
+    .incl h2 { font-size: 120px; margin-bottom: 56px; }
+    .tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .tile { padding: 34px 34px 32px; height: 236px; display: flex; flex-direction: column; justify-content: space-between; }
+    .tile .big { font-size: 120px; font-weight: 900; font-stretch: 62%; line-height: 0.82; }
+    .tile p { font-size: 23px; line-height: 1.3; color: var(--mute); }
+    .tile.hl { background: var(--gold-sheet); }
+    .tile.hl .big, .tile.hl p { color: #1b1307; }
+    .incl .fine { margin-top: 34px; font-size: 21px; color: var(--mute); max-width: 74ch; }
+    .incl .fine b { color: var(--bone); }
+    .incl > .photo { height: 1080px; }
+
+    /* =========================================================
+       11 · Headline sponsor
+       ========================================================= */
+    .headline { display: grid; grid-template-columns: 1fr 900px; gap: 90px; align-items: center; padding-bottom: 140px; }
+    .headline h2 { font-size: 132px; }
+    .headline .chip { margin-top: 30px; }
+    .headline .price { font-size: 300px; margin: 52px 0 48px; }
+    .bars li {
+      padding: 6px 0 6px 26px;
+      margin-bottom: 20px;
+      box-shadow: inset 4px 0 0 var(--gold);
+      font-size: 30px;
+      line-height: 1.25;
+      color: var(--mute);
+    }
+    .bars b { color: var(--bone); font-weight: 700; }
+    .collage { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 470px 310px; gap: 18px; }
+    .collage .photo:first-child { grid-column: 1 / -1; }
+
+    /* =========================================================
+       12 · Competition sponsorship
+       ========================================================= */
+    .comp { padding-top: 86px; }
+    .comp h2 { font-size: 104px; margin-bottom: 36px; }
+    .comp-grid { display: grid; grid-template-columns: 560px 1fr; gap: 44px; }
+    .comp-card { padding: 0 0 28px; }
+    .comp-card .photo { height: 96px; }
+    .comp-card .inner { padding: 24px 40px 0; }
+    .comp-card .price { font-size: 108px; margin: 6px 0 16px; }
+    .comp-card ul { margin: 8px 0 18px; }
+    .comp-card li { font-size: 20px; line-height: 1.28; padding: 4px 0; color: var(--mute); }
+    .comp-card li b { color: var(--gold); font-weight: 700; }
+    .comp-card .perf { margin-bottom: 16px; }
+
+    table { width: 100%; border-collapse: collapse; font-size: 22px; }
+    thead th {
+      padding: 0 22px 16px;
+      text-align: left;
+      font-size: 14px;
+      font-weight: 600;
+      font-stretch: 125%;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border-bottom: 1px solid var(--line-gold);
+    }
+    tbody td { padding: 0 22px; height: 70px; border-bottom: 1px solid var(--line); }
+    tbody tr:nth-child(odd) td { background: rgba(241, 233, 216, 0.025); }
+    td.t { font-variant-numeric: tabular-nums; color: var(--mute); white-space: nowrap; }
+    td.c { font-weight: 700; }
+    td.c.tba { font-weight: 500; color: var(--faint); }
+    td.l { color: var(--mute); white-space: nowrap; }
+    .avail {
+      display: inline-block;
+      padding: 6px 12px 5px;
+      font-size: 13px;
+      font-weight: 700;
+      font-stretch: 120%;
+      letter-spacing: 0.2em;
+      color: var(--gold-hi);
+      box-shadow: inset 0 0 0 1px var(--line-gold);
+      background: rgba(217, 178, 94, 0.1);
+    }
+    .comp .fine { margin-top: 20px; font-size: 19px; color: var(--faint); }
+
+    /* =========================================================
+       13 · Gold sponsor
+       ========================================================= */
+    .goldsp { display: grid; grid-template-columns: 1fr 940px; padding: 0; }
+    .goldsp-copy { padding: var(--pad-y) 60px 150px var(--pad-x); display: flex; flex-direction: column; justify-content: center; }
+    .goldsp h2 { font-size: 170px; }
+    .goldsp .price { font-size: 300px; margin: 44px 0 56px; }
+    .goldsp > .photo { height: 1080px; }
+    .goldsp > .photo::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      background: linear-gradient(90deg, var(--ink) 0%, rgba(10, 9, 7, 0) 30%);
+    }
+
+    /* =========================================================
+       14 · Ticket pricing
+       ========================================================= */
+    .tickets .bg-top { position: absolute; inset: 0 0 auto 0; height: 560px; z-index: -1; }
+    .tickets .bg-top .photo { position: absolute; inset: 0; opacity: 0.55; }
+    .tickets .bg-top::after { content: ""; position: absolute; inset: 0; z-index: 3; background: linear-gradient(0deg, var(--ink) 0%, rgba(10, 9, 7, 0.7) 60%, rgba(10, 9, 7, 0.55) 100%); }
+    .tickets .head-row { margin-bottom: 60px; }
+    .tickets .head-row .eyebrow { margin-bottom: 14px; }
+    .tix { display: grid; grid-template-columns: repeat(4, 1fr); gap: 26px; }
+    .tix .ticket {
+      /* Half-circle punches on both sides at the perforation line */
+      -webkit-mask: radial-gradient(circle 16px at 0 62%, transparent 15px, #000 16px) left / 51% 100% no-repeat,
+                    radial-gradient(circle 16px at 100% 62%, transparent 15px, #000 16px) right / 51% 100% no-repeat;
+      mask: radial-gradient(circle 16px at 0 62%, transparent 15px, #000 16px) left / 51% 100% no-repeat,
+            radial-gradient(circle 16px at 100% 62%, transparent 15px, #000 16px) right / 51% 100% no-repeat;
+      background: var(--ink-3);
+      box-shadow: inset 0 0 0 1px var(--line);
+      height: 370px;
+      padding: 40px 38px 0;
+      position: relative;
+    }
+    .ticket .price { font-size: 150px; margin-top: 28px; }
+    .ticket .perf { position: absolute; left: 30px; right: 30px; top: 62%; }
+    .ticket .when { position: absolute; left: 38px; right: 38px; top: calc(62% + 34px); font-size: 23px; color: var(--mute); }
+    .ticket.feat { background: var(--gold-sheet); box-shadow: none; color: #1b1307; }
+    .ticket.feat .label, .ticket.feat .when { color: #1b1307; }
+    .ticket.feat .perf { background: repeating-linear-gradient(90deg, rgba(27, 19, 7, 0.45) 0 8px, transparent 8px 16px); }
+    .combo {
+      display: grid;
+      grid-template-columns: auto 1px 1fr;
+      gap: 44px;
+      align-items: center;
+      margin-top: 30px;
+      padding: 30px 48px;
+      background: var(--gold-sheet);
+      color: #1b1307;
+      clip-path: polygon(var(--notch) 0, 100% 0, 100% calc(100% - var(--notch)), calc(100% - var(--notch)) 100%, 0 100%, 0 var(--notch));
+    }
+    .combo .price { font-size: 128px; }
+    .combo .perf-v { align-self: stretch; background: repeating-linear-gradient(180deg, rgba(27, 19, 7, 0.45) 0 8px, transparent 8px 16px); }
+    .combo h3 { font-size: 36px; font-weight: 800; margin-bottom: 6px; }
+    .combo p { font-size: 23px; line-height: 1.4; }
+
+    /* =========================================================
+       15 · Why partner + contact
+       ========================================================= */
+    .partner { display: grid; grid-template-columns: 1fr 780px; gap: 110px; align-items: center; padding-bottom: 140px; }
+    .partner .shade { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(10, 9, 7, 0.94) 0%, rgba(10, 9, 7, 0.82) 50%, rgba(10, 9, 7, 0.9) 100%); }
+    .reasons > div { padding: 30px 0 32px; border-top: 1px solid var(--line-gold); }
+    .reasons > div:first-child { padding-top: 0; border-top: 0; }
+    .reasons .big { font-size: 140px; line-height: 0.86; }
+    .reasons h3 { font-size: 40px; font-weight: 800; margin-bottom: 6px; }
+    .reasons p { font-size: 25px; color: var(--mute); }
+    .reasons > div:first-child p { margin-top: 14px; }
+    .contact { padding: 64px 64px 60px; background: rgba(17, 15, 11, 0.92); }
+    .contact .badge { position: absolute; top: 44px; right: 44px; width: 120px; }
+    .contact h2 { font-size: 108px; margin-bottom: 52px; }
+    .contact dl { display: grid; grid-template-columns: 170px 1fr; row-gap: 22px; align-items: baseline; }
+    .contact dt {
+      font-size: 15px;
+      font-weight: 600;
+      font-stretch: 125%;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .contact dd { font-size: 32px; font-weight: 600; }
+    .contact .perf { margin-bottom: 40px; }
+
+    /* ---------- Screen view: stack slides and fit them to the window ---------- */
+    @media screen {
+      body { padding: 24px 0; }
+      .deck { width: 1920px; margin: 0 auto; display: grid; gap: 32px; transform-origin: 0 0; }
+    }
+    @media print {
+      body { padding: 0; background: var(--ink); }
+      .deck { transform: none !important; height: auto !important; width: auto !important; margin: 0 !important; }
+    }
+  </style>
+</head>
+<body>
+<main class="deck" data-deck>
+
+  <!-- ============ 01 · COVER ============ -->
+  <section class="slide cover">
+    <div class="bleed">
+      <figure class="photo"><img src="img/photos/42.jpg" alt=""></figure>
+      <div class="shade"></div>
+      <div class="beam" style="left:-14%; transform:rotate(-8deg)"></div>
+      <div class="beam" style="left:40%; transform:rotate(6deg)"></div>
+    </div>
+    <img class="badge" src="../assets/logos/empire-badge.webp" alt="Empire Barber Expo, Calgary AB">
+    <span class="chip chip-gold">Part 3 · The Fusion</span>
+    <h1 class="display">Empire Barber<br>Expo <em class="gold-text">2027</em></h1>
+    <p class="sub">Vendor &amp; Sponsor Overview</p>
+    <div class="cover-bar">
+      <p class="display cover-date gold-text">May 2, 2027</p>
+      <p class="cover-where">Calgary,<br>Alberta</p>
+    </div>
+    <p class="foot"><span>Barberexpo.ca</span></p>
+  </section>
+
+  <!-- ============ 02 · THEME ============ -->
+  <section class="slide theme">
+    <div>
+      <p class="eyebrow">This year's theme</p>
+      <h2 class="display gold-text">The Fusion</h2>
+      <p class="of serif-gold" style="color:var(--bone)">Of Barbering &amp; Hairstyling.</p>
+      <p class="lede">Empire Barber Expo 2027 brings together the best of modern barbering and professional hairstyling — education, competition, creativity, brands and industry leaders under one roof.</p>
+    </div>
+    <div class="fusion notched">
+      <figure class="photo a"><img src="img/photos/09.jpg" alt="" style="object-position:40% 50%"></figure>
+      <figure class="photo b"><img src="img/photos/04.jpg" alt="" style="object-position:62% 62%"></figure>
+      <div class="seam"></div>
+    </div>
+    <p class="foot"><span>Barberexpo.ca · 02</span><img src="../assets/logos/empire-badge.webp" alt=""></p>
+  </section>
+
+  <!-- ============ 03 · EVENT OVERVIEW ============ -->
+  <section class="slide">
+    <div class="head-row">
+      <h2 class="display h-title">Event Overview</h2>
+      <p class="stub"><span>Vendor set-up</span><span class="perf-v"></span><span>Saturday, May 1</span></p>
+    </div>
+    <div class="days">
+      <article class="day card card-line">
+        <figure class="photo"><img src="img/photos/36.jpg" alt=""></figure>
+        <div class="day-body">
+          <p class="label">Sunday · May 2</p>
+          <h3 class="display">Main Expo Day</h3>
+          <ul>
+            <li><b>Trade show floor</b> · the industry's top brands</li>
+            <li><b>Main stage education</b> · barbering and hairstyling</li>
+            <li><b>Hair competitions</b> · capped by the awards ceremony</li>
+            <li><b>Giveaways</b></li>
+            <li><b>Celebrity Barber Educators</b></li>
+          </ul>
+        </div>
+      </article>
+      <article class="day card card-gold-line">
+        <figure class="photo"><img src="img/photos/44.jpg" alt="" style="object-position:50% 40%"></figure>
+        <div class="day-body">
+          <p class="label">Monday · May 3 · <span class="new">New</span></p>
+          <h3 class="display">Education Day</h3>
+          <ul>
+            <li><b>4 sessions</b> · 4 topics · 4 educators</li>
+            <li><b>Technical haircutting</b> · each class a different focus</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+    <p class="foot"><span>Barberexpo.ca · 03</span><img src="../assets/logos/empire-badge.webp" alt=""></p>
+  </section>
+
+  <!-- ============ 04 · WHY A SECOND EDUCATION DAY ============ -->
+  <section class="slide why">
+    <figure class="photo"><img src="img/photos/03.jpg" alt="" style="object-position:50% 60%"></figure>
+    <div class="why-copy">
+      <h2 class="display">Why we added a<br><span class="gold-text">second education day</span></h2>
+      <div class="points">
+        <div class="point">
+          <span class="no gold-text">01</span>
+          <div>
+            <h3>Built on your feedback</h3>
+            <p>Last year's attendees asked for more in-depth, specific education. May 3 gives them exactly that.</p>
+          </div>
+        </div>
+        <div class="point">
+          <span class="no gold-text">02</span>
+          <div>
+            <h3>More room on the main stage</h3>
+            <p>Moving in-depth classes to their own day frees the May 2 main stage for more educators.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="foot" style="left:880px"><span>Barberexpo.ca · 04</span><img src="../assets/logos/empire-badge.webp" alt=""></p>
+  </section>
+
+  <!-- ============ 05 · FLOOR PLAN ============ -->
+  <section class="slide plan">
+    <div class="head-row">
+      <h2 class="display h-title">2027 <span class="gold-text">Floor Plan</span></h2>
+    </div>
+    <div class="plan-sheet"><img src="img/floor-plan.png" alt="2027 floor plan"></div>
+    <p class="foot"><span>Barberexpo.ca · 05</span><img src="../assets/logos/empire-badge.webp" alt=""></p>
+  </section>
+
+  <!-- ============ 06 · BY THE NUMBERS ============ -->
+  <section class="slide numbers">
+    <figure class="bg-photo"><img src="img/photos/43.jpg" alt=""></figure>
+    <h2 class="display">Last year, by the numbers</h2>
+    <div class="stats">
+      <div class="stat"><p class="num">1,600</p><p>Total attendees</p></div>
+      <div class="stat"><p class="num">45</p><p>Vendors on the floor</p></div>
+      <div class="stat"><p class="num">~$178K</p><p>CAD sold at cash &amp; carry booths</p></div>
+    </div>
+    <p class="foot"><span>Barberexpo.ca · 06</span></p>
+  </section>
+
+  <!-- ============ 07 · HIGHLIGHT VIDEO ============ -->
+  <section class="slide video">
+    <div class="bleed">
+      <figure class="photo"><img src="img/photos/39.jpg" alt="" style="object-position:50% 40%"></figure>
+      <div class="shade"></div>
+    </div>
+    <a class="play" href="https://www.youtube.com/watch?v=7pd6_2GhPt0" aria-label="Watch on YouTube">
+      <svg width="60" height="60" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 1.2l8 4.8-8 4.8z" fill="currentColor"/></svg>
+    </a>
+    <h2 class="display">2026 Highlight<br><span class="gold-text">Video</span></h2>
+    <a class="chip chip-gold" href="https://www.youtube.com/watch?v=7pd6_2GhPt0">▶ Watch on YouTube</a>
+    <p class="foot"><span>Barberexpo.ca · 07 · <a href="https://www.youtube.com/watch?v=7pd6_2GhPt0">youtube.com/watch?v=7pd6_2GhPt0</a></span><img src="../assets/logos/empire-badge.webp" alt=""></p>
+  </section>
+
+  <!-- ============ 08 · EDUCATORS ============ -->
+  <section class="slide edu">
+    <div>
+      <p class="eyebrow">2026 Lineup</p>
+      <h2 class="display">Last year's<br><span class="gold-text">educators</span></h2>
+      <div class="rule"></div>
+      <p class="lede">World-class talent from across North America and beyond took the stage in 2026.</p>
+    </div>
+    <figure class="lineup notched"><img src="img/educator-lineup.png" alt="2026 educator lineup"></figure>
+    <p class="foot"><span>Barberexpo.ca · 08</span><img src="../assets/logos/empire-badge.webp" alt=""></p>
+  </section>
+
+  <!-- ============ 09 · BOOTH RATES ============ -->
+  <section class="slide rates">
+    <div class="bg-top"><figure class="photo"><img src="img/photos/31.jpg" alt=""></figure></div>
+    <h2 class="display h-title">2027 Booth Rates</h2>
+    <div class="rate-grid">
+      <article class="rate card feat">
+        <p class="label">10 × 10 · High traffic</p>
+        <p class="price gold-text">$1,725</p>
+        <div class="perf"></div>
+        <p class="dbl">Double 10 × 20: <b>$2,760</b></p>
+      </article>
+      <article class="rate card card-line">
+        <p class="label">10 × 10 · Standard</p>
+        <p class="price gold-text">$1,150</p>
+        <div class="perf"></div>
+        <p class="dbl">Double 10 × 20: <b>$2,070</b></p>
+      </article>
+    </div>
+    <p class="notice"><span><b>Returning vendors:</b> We're honouring your 2026 rate — must confirm by November 30, 2026.</span></p>
+    <p class="foot"><span>Barberexpo.ca · 09</span><img src="../assets/logos/empire-badge.webp" alt=""></p>
+  </section>
+
+  <!-- ============ 10 · WHAT'S INCLUDED ============ -->
+  <section class="slide incl">
+    <div class="incl-copy">
+      <h2 class="display">What's included<br>in <span class="gold-text">every booth</span></h2>
+      <div class="tiles">
+        <div class="tile card card-line"><span class="big gold-text">8'</span><p>High black backwall drape</p></div>
+        <div class="tile card card-line"><span class="big gold-text">3'</span><p>High black sidewall drape</p></div>
+        <div class="tile card card-line"><span class="big gold-text">6'</span><p>Black skirted table</p></div>
+        <div class="tile card card-line"><span class="big gold-text">2</span><p>Folding chairs</p></div>
+        <div class="tile card card-line"><span class="big gold-text">1</span><p>Wastebasket</p></div>
+        <div class="tile card hl"><span class="big">3</span><p>Expo access passes per booth — ask about additional passes</p></div>
+      </div>
+      <p class="fine"><b>Electrical</b> is sold separately through the Global Convention Services vendor portal. <b>Shipping:</b> send your merchandise to us and we'll deliver it to the venue free of charge.</p>
+    </div>
+    <figure class="photo"><img src="img/photos/17.jpg" alt="" style="object-position:50% 60%"></figure>
+    <p class="foot" style="right:640px"><span>Barberexpo.ca · 10</span></p>
+  </section>
+
+  <!-- ============ 11 · HEADLINE SPONSOR ============ -->
+  <section class="slide headline">
+    <div>
+      <h2 class="display">Headline<br>Sponsor</h2>
+      <span class="chip chip-gold">Only 3 available</span>
+      <p class="price gold-text">$5,000</p>
+      <ul class="bars">
+        <li><b>Four 10 × 10 booths</b></li>
+        <li><b>Main stage exposure</b></li>
+        <li><b>Social media &amp; marketing material</b> exposure</li>
+      </ul>
+    </div>
+    <div class="collage">
+      <figure class="photo notched"><img src="img/photos/37.jpg" alt=""></figure>
+      <figure class="photo notched"><img src="img/photos/15.jpg" alt="" style="object-position:50% 40%"></figure>
+      <figure class="photo notched"><img src="img/photos/41.jpg" alt=""></figure>
+    </div>
+    <p class="foot"><span>Barberexpo.ca · 11</span><img src="../assets/logos/empire-badge.webp" alt=""></p>
+  </section>
+
+  <!-- ============ 12 · COMPETITION SPONSORSHIP ============ -->
+  <section class="slide comp">
+    <h2 class="display">Competition <span class="gold-text">Sponsorship</span></h2>
+    <div class="comp-grid">
+      <article class="comp-card card card-gold-line">
+        <figure class="photo"><img src="img/photos/30.jpg" alt="" style="object-position:50% 88%"></figure>
+        <div class="inner">
+          <p class="label">Per competition</p>
+          <p class="price gold-text">$3,000</p>
+          <p class="label">Covers all prizes</p>
+          <ul>
+            <li><b>1st · $1,250</b> — $500 cash + tools</li>
+            <li><b>2nd · $750</b> — $200 cash + tools</li>
+            <li><b>3rd · $500</b> — tools</li>
+            <li><b>Trophies</b> for all 3 placings</li>
+          </ul>
+          <div class="perf"></div>
+          <p class="label">Your exposure</p>
+          <ul style="margin-bottom:0">
+            <li>Featured on every social post about your competition</li>
+            <li>Branded logos on the competition stage</li>
+          </ul>
+        </div>
+      </article>
+      <div>
+        <table>
+          <thead><tr><th>Time</th><th>Competition</th><th>Length</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td class="t">11:00 – 11:45 AM</td><td class="c tba">[Category TBA]</td><td class="l">45 min</td><td><span class="avail">AVAILABLE</span></td></tr>
+            <tr><td class="t">12:00 – 12:45 PM</td><td class="c tba">[Category TBA]</td><td class="l">45 min</td><td><span class="avail">AVAILABLE</span></td></tr>
+            <tr><td class="t">1:00 – 1:30 PM</td><td class="c">Tag Team (Dynamic Duo Battle)</td><td class="l">30 min</td><td><span class="avail">AVAILABLE</span></td></tr>
+            <tr><td class="t">1:45 – 2:00 PM</td><td class="c">Speed Fade (Fade Frenzy)</td><td class="l">15 min</td><td><span class="avail">AVAILABLE</span></td></tr>
+            <tr><td class="t">2:15 – 2:55 PM</td><td class="c">Traditional (Traditional Clash)</td><td class="l">40 min</td><td><span class="avail">AVAILABLE</span></td></tr>
+            <tr><td class="t">3:10 – 3:50 PM</td><td class="c">Creative Design</td><td class="l">40 min</td><td><span class="avail">AVAILABLE</span></td></tr>
+            <tr><td class="t">4:05 – 4:35 PM</td><td class="c">Speed Rookie Barber</td><td class="l">30 min</td><td><span class="avail">AVAILABLE</span></td></tr>
+            <tr><td class="t">4:50 – 5:30 PM</td><td class="c">Hair &amp; Beard</td><td class="l">40 min</td><td><span class="avail">AVAILABLE</span></td></tr>
+          </tbody>
+        </table>
+        <p class="fine">15-minute buffer between competitions · 8 competitions, 8 sponsorship spots</p>
+      </div>
+    </div>
+    <p class="foot"><span>Barberexpo.ca · 12</span><img src="../assets/logos/empire-badge.webp" alt=""></p>
+  </section>
+
+  <!-- ============ 13 · GOLD SPONSOR ============ -->
+  <section class="slide goldsp">
+    <div class="goldsp-copy">
+      <p class="eyebrow">Main stage</p>
+      <h2 class="display">Gold Sponsor</h2>
+      <p class="price gold-text">$1,000</p>
+      <ul class="bars"><li><b>Main stage exposure</b> alongside an educator</li></ul>
+    </div>
+    <figure class="photo"><img src="img/photos/20.jpg" alt="" style="object-position:60% 50%"></figure>
+    <p class="foot" style="right:1060px"><span>Barberexpo.ca · 13</span></p>
+  </section>
+
+  <!-- ============ 14 · TICKET PRICING ============ -->
+  <section class="slide tickets">
+    <div class="bg-top"><figure class="photo"><img src="img/photos/32.jpg" alt=""></figure></div>
+    <div class="head-row">
+      <h2 class="display h-title">Ticket Pricing</h2>
+      <p class="eyebrow">General admission · May 2</p>
+    </div>
+    <div class="tix">
+      <article class="ticket feat">
+        <p class="label">Early bird</p>
+        <p class="price">$59</p>
+        <div class="perf"></div>
+        <p class="when">Until Jan 1, 2027</p>
+      </article>
+      <article class="ticket">
+        <p class="label">Tier 2</p>
+        <p class="price gold-text">$69</p>
+        <div class="perf"></div>
+        <p class="when">Until Mar 31, 2027</p>
+      </article>
+      <article class="ticket">
+        <p class="label">Tier 3</p>
+        <p class="price gold-text">$79</p>
+        <div class="perf"></div>
+        <p class="when">Until May 1, 2027</p>
+      </article>
+      <article class="ticket">
+        <p class="label">At the door</p>
+        <p class="price gold-text">$109</p>
+        <div class="perf"></div>
+        <p class="when">Day of · May 2, 2027</p>
+      </article>
+    </div>
+    <div class="combo">
+      <p class="price">$125</p>
+      <span class="perf-v"></span>
+      <div>
+        <h3>Competition + Model Ticket</h3>
+        <p>Includes entry into that competition plus the model's entry to the expo. Competitors purchase their own expo entry.</p>
+      </div>
+    </div>
+    <p class="foot"><span>Barberexpo.ca · 14</span><img src="../assets/logos/empire-badge.webp" alt=""></p>
+  </section>
+
+  <!-- ============ 15 · WHY PARTNER + CONTACT ============ -->
+  <section class="slide partner">
+    <div class="bleed">
+      <figure class="photo"><img src="img/photos/34.jpg" alt=""></figure>
+      <div class="shade"></div>
+    </div>
+    <div>
+      <p class="eyebrow">Why partner with us</p>
+      <div class="reasons">
+        <div>
+          <p class="display big gold-text">2,000+ attendees</p>
+          <p>Expected this year — up from 1,600 in 2026.</p>
+        </div>
+        <div>
+          <h3>A bigger audience</h3>
+          <p>The Fusion brings stylists and barbers into one room.</p>
+        </div>
+        <div>
+          <h3>Buyers ready to spend</h3>
+          <p>~$178K CAD sold at cash &amp; carry booths last year.</p>
+        </div>
+      </div>
+    </div>
+    <div class="contact card card-gold-line">
+      <h2 class="display">Contact us to<br><span class="gold-text">reserve your booth</span></h2>
+      <div class="perf"></div>
+      <dl>
+        <dt>Phone</dt><dd><a href="tel:+15878892551">587-889-2551</a></dd>
+        <dt>Email</dt><dd><a href="mailto:info@empirebarber.ca">info@empirebarber.ca</a></dd>
+        <dt>Sponsors</dt><dd><a href="mailto:jawad@empirebarber.ca">jawad@empirebarber.ca</a></dd>
+        <dt>Web</dt><dd><a href="https://barberexpo.ca">barberexpo.ca</a></dd>
+      </dl>
+    </div>
+    <p class="foot"><span>Barberexpo.ca · 15</span></p>
+  </section>
+
+</main>
+<script>
+  // Screen only: scale the 1920-wide deck to fit the window
+  (function () {
+    var deck = document.querySelector('[data-deck]');
+    function fit() {
+      if (matchMedia('print').matches) return;
+      var s = Math.min(1, (window.innerWidth - 48) / 1920);
+      deck.style.transform = 'scale(' + s + ')';
+      deck.style.marginLeft = Math.max(24, (window.innerWidth - 1920 * s) / 2) + 'px';
+      deck.style.height = deck.scrollHeight * s + 'px';
+    }
+    addEventListener('resize', fit);
+    addEventListener('load', fit);
+    fit();
+  })();
+</script>
+</body>
+</html>
