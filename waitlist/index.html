@@ -2,99 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Expo 2027 Waitlist · Empire Barber Expo</title>
-  <meta name="description" content="The 3Peat is coming. Join the waitlist for Empire Barber Expo 2027, Sunday, May 2 at the Big Four Roadhouse in Calgary.">
-  <meta name="theme-color" content="#0a0907">
-  <meta property="og:title" content="Empire Barber Expo 2027 · Join the Waitlist">
-  <meta property="og:description" content="Part III. Sunday, May 2, 2027. Big Four Roadhouse, Calgary.">
-  <meta property="og:image" content="../assets/img/crowd-hype.webp">
-  <link rel="icon" href="../assets/logos/empire-badge.webp">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-  <link rel="preload" as="image" href="../assets/img/hero-poster.webp" fetchpriority="high">
-  <link rel="stylesheet" href="../assets/css/waitlist.css?v=6">
+  <title>Empire Barber Expo 2027 · Waitlist</title>
+  <!-- The waitlist moved to the site root. This keeps links already shared to /waitlist/ working. -->
+  <meta name="robots" content="noindex">
+  <link rel="canonical" href="../">
+  <meta http-equiv="refresh" content="0; url=../">
+  <script>location.replace('../' + location.hash);</script>
 </head>
-<body>
-  <div class="backdrop" aria-hidden="true">
-    <img src="../assets/img/hero-poster.webp" alt="" width="1600" height="900" fetchpriority="high">
-  </div>
-
-  <div class="page">
-    <header class="brand">
-      <div class="brand-mark">
-        <img src="../assets/logos/empire-badge.webp" alt="" width="40" height="40">
-        <span translate="no">Empire Barber Expo</span>
-      </div>
-    </header>
-
-    <main class="stage">
-      <p class="eyebrow" style="--i:0">Part III · Coming soon</p>
-
-      <h1 class="title" style="--i:1">
-        <span translate="no">The <em class="gold">3</em>peat</span>
-        <span class="title-kicker">is coming.</span>
-      </h1>
-
-      <p class="lede" style="--i:2">Early bird tickets drop soon. Join the waitlist and we’ll email you the moment they go live.</p>
-
-      <div class="countdown" style="--i:3" data-countdown role="timer" aria-label="Countdown to doors on May 2, 2027">
-        <div class="cd-unit"><span class="cd-num" data-unit="d"></span><span class="cd-label">Days</span></div>
-        <div class="cd-unit"><span class="cd-num" data-unit="h"></span><span class="cd-label">Hours</span></div>
-        <div class="cd-unit"><span class="cd-num" data-unit="m"></span><span class="cd-label">Minutes</span></div>
-        <div class="cd-unit"><span class="cd-num" data-unit="s"></span><span class="cd-label">Seconds</span></div>
-      </div>
-
-      <div class="signup" style="--i:4" data-signup>
-        <form class="field" data-form novalidate>
-          <label class="sr-only" for="email">Email address</label>
-          <input id="email" name="email" type="email" inputmode="email" autocomplete="email" spellcheck="false" placeholder="you@yourshop.com" required aria-describedby="form-status">
-          <!-- Spam trap: hidden from people, filled in by bots -->
-          <input class="trap" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
-          <button class="submit" type="submit">
-            <span class="submit-label">Join the Waitlist</span>
-          </button>
-        </form>
-
-        <div class="done" data-done hidden>
-          <span class="done-mark" aria-hidden="true">
-            <svg width="18" height="18" viewBox="0 0 18 18"><path d="M4 9.5l3.2 3L14 5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </span>
-          <p><strong>You’re on the list.</strong> Watch your inbox for the ticket drop.</p>
-        </div>
-
-        <p class="status" id="form-status" data-status aria-live="polite"></p>
-      </div>
-
-      <button class="watch" type="button" style="--i:5" data-play aria-haspopup="dialog">
-        <span class="watch-thumb" aria-hidden="true">
-          <img src="../assets/img/mc-point.webp" alt="" width="1600" height="900" decoding="async">
-          <span class="watch-icon"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M3 1.5l7.5 4.5L3 10.5z" fill="currentColor"/></svg></span>
-        </span>
-        <span class="watch-text">
-          <strong>Watch the Part II recap</strong>
-          <span>Highlights from April 12, 2026 <span class="nowrap">· <time datetime="PT1M13S">1:13</time></span></span>
-        </span>
-      </button>
-    </main>
-
-    <footer class="foot">
-      <p><time datetime="2027-05-02">Sunday, May 2, 2027</time> · Big Four Roadhouse, Calgary</p>
-      <nav aria-label="More">
-        <a href="https://www.instagram.com/empirebarbersupply/" target="_blank" rel="noopener">Instagram</a>
-      </nav>
-    </footer>
-  </div>
-
-  <dialog class="player" data-player aria-label="Empire Barber Expo Part II recap">
-    <button class="player-close" type="button" data-player-close aria-label="Close video">
-      <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 3.5l9 9M12.5 3.5l-9 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-    </button>
-    <video controls playsinline preload="none" poster="../assets/img/hero-poster.webp" data-src="../assets/video/expo-2026-recap.mp4" width="1280" height="720"></video>
-  </dialog>
-
-  <script src="../assets/js/waitlist.js?v=2" defer></script>
+<body style="background:#0a0907;color:#f1e9d8;font-family:system-ui,sans-serif;padding:24px">
+  <p>The waitlist has moved. <a href="../" style="color:#d9b25e">Go to the waitlist</a>.</p>
 </body>
 </html>

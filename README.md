@@ -14,8 +14,13 @@ Then open http://localhost:5173.
 
 ## Pages
 
-- `/` — the full landing page
-- `/waitlist/` — a minimal coming-soon page with the countdown and an email waitlist
+- `/` — the coming-soon waitlist page with the countdown and Part II recap
+- `/expo-2027-preview-lyqui6/` — the full landing page, kept off the root until launch (marked `noindex`, but anyone with the link or the repo can still open it)
+- `/waitlist/` — redirects to `/` so links shared earlier keep working
+
+## Launch the full page
+
+Swap the two pages back: move `expo-2027-preview-lyqui6/index.html` to `index.html` (change its `../assets/` paths to `assets/` and remove the `noindex` meta), and move the waitlist to a subfolder or remove it.
 
 ## Connect the waitlist
 

@@ -4,6 +4,9 @@
 (() => {
   'use strict';
 
+  // Asset root resolved from this script's URL, so pages in subfolders still find the files
+  const ASSETS = new URL('../', document.currentScript.src).href;
+
   /* ---------- Config: swap links here ---------- */
   const LINKS = {
     // Replace with the 2027 Showpass event URL when it is live.
@@ -519,7 +522,7 @@
         const key = a.dataset.person;
         if (imgs.has(key)) return;
         const img = new Image();
-        img.src = `assets/people/${key}.webp`;
+        img.src = `${ASSETS}people/${key}.webp`;
         img.alt = '';
         img.decoding = 'async';
         inner.append(img);
