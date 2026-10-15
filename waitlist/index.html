@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
   <link rel="preload" as="image" href="../assets/img/hero-poster.webp" fetchpriority="high">
-  <link rel="stylesheet" href="../assets/css/waitlist.css?v=3">
+  <link rel="stylesheet" href="../assets/css/waitlist.css?v=6">
 </head>
 <body>
   <div class="backdrop" aria-hidden="true">
@@ -24,10 +24,10 @@
 
   <div class="page">
     <header class="brand">
-      <a href="../" aria-label="Empire Barber Expo home">
+      <div class="brand-mark">
         <img src="../assets/logos/empire-badge.webp" alt="" width="40" height="40">
         <span translate="no">Empire Barber Expo</span>
-      </a>
+      </div>
     </header>
 
     <main class="stage">
@@ -67,17 +67,34 @@
 
         <p class="status" id="form-status" data-status aria-live="polite"></p>
       </div>
+
+      <button class="watch" type="button" style="--i:5" data-play aria-haspopup="dialog">
+        <span class="watch-thumb" aria-hidden="true">
+          <img src="../assets/img/mc-point.webp" alt="" width="1600" height="900" decoding="async">
+          <span class="watch-icon"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M3 1.5l7.5 4.5L3 10.5z" fill="currentColor"/></svg></span>
+        </span>
+        <span class="watch-text">
+          <strong>Watch the Part II recap</strong>
+          <span>Highlights from April 12, 2026 <span class="nowrap">· <time datetime="PT1M13S">1:13</time></span></span>
+        </span>
+      </button>
     </main>
 
     <footer class="foot">
       <p><time datetime="2027-05-02">Sunday, May 2, 2027</time> · Big Four Roadhouse, Calgary</p>
       <nav aria-label="More">
-        <a href="../">See Part II</a>
         <a href="https://www.instagram.com/empirebarbersupply/" target="_blank" rel="noopener">Instagram</a>
       </nav>
     </footer>
   </div>
 
-  <script src="../assets/js/waitlist.js?v=1" defer></script>
+  <dialog class="player" data-player aria-label="Empire Barber Expo Part II recap">
+    <button class="player-close" type="button" data-player-close aria-label="Close video">
+      <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 3.5l9 9M12.5 3.5l-9 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+    </button>
+    <video controls playsinline preload="none" poster="../assets/img/hero-poster.webp" data-src="../assets/video/expo-2026-recap.mp4" width="1280" height="720"></video>
+  </dialog>
+
+  <script src="../assets/js/waitlist.js?v=2" defer></script>
 </body>
 </html>

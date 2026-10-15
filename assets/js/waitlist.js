@@ -75,6 +75,24 @@
     tick();
   })();
 
+  /* ---------- Part II recap player ---------- */
+  (() => {
+    const dlg = $('[data-player]');
+    if (!dlg) return;
+    const video = $('video', dlg);
+
+    const open = () => {
+      // Load the 21 MB file only when someone actually asks for it
+      if (!video.src) video.src = video.dataset.src;
+      dlg.showModal();
+      video.play().catch(() => {});
+    };
+    document.querySelectorAll('[data-play]').forEach((b) => b.addEventListener('click', open));
+    $('[data-player-close]', dlg).addEventListener('click', () => dlg.close());
+    dlg.addEventListener('click', (e) => { if (e.target === dlg) dlg.close(); });
+    dlg.addEventListener('close', () => video.pause());
+  })();
+
   /* ---------- Waitlist form ---------- */
   (() => {
     const wrap = $('[data-signup]');

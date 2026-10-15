@@ -100,7 +100,7 @@ a, button { touch-action: manipulation; -webkit-tap-highlight-color: transparent
     max(20px, env(safe-area-inset-left));
 }
 
-.brand a {
+.brand-mark {
   display: inline-flex;
   align-items: center;
   gap: 10px;
@@ -119,11 +119,11 @@ a, button { touch-action: manipulation; -webkit-tap-highlight-color: transparent
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 28px;
+  gap: 22px;
   width: 100%;
   max-width: 600px;
   margin: 0 auto;
-  padding-block: 48px;
+  padding-block: 28px;
   text-align: center;
 }
 
@@ -151,7 +151,7 @@ a, button { touch-action: manipulation; -webkit-tap-highlight-color: transparent
   align-items: center;
   font-weight: 900;
   font-stretch: 62%;
-  font-size: clamp(4.5rem, 19vw, 9.5rem);
+  font-size: clamp(4.5rem, 19vw, 8.25rem);
   line-height: 0.86;       /* large type: tight leading */
   letter-spacing: -0.01em; /* and slightly negative tracking */
   text-transform: uppercase;
@@ -331,13 +331,129 @@ a, button { touch-action: manipulation; -webkit-tap-highlight-color: transparent
 }
 
 .status {
-  min-height: 1.5em;
-  margin-top: 10px;
+  min-height: 1.25em;
+  margin-top: 8px;
   font-size: 0.875rem;
   color: var(--mute);
 }
 .status.is-error { color: var(--danger); }
 .status a { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
+
+/* ---------- Recap video ---------- */
+
+.watch {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 8px 18px 8px 8px;
+  border: 0;
+  border-radius: 18px;
+  background: var(--material);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  backdrop-filter: blur(20px) saturate(140%);
+  box-shadow: inset 0 0 0 1px var(--line);
+  color: var(--bone);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: transform 160ms var(--ease-out), box-shadow 200ms ease;
+}
+.watch:active { transform: scale(0.98); transition-duration: 80ms; }
+@media (hover: hover) and (pointer: fine) {
+  .watch:hover { box-shadow: inset 0 0 0 1px var(--line-gold); }
+  .watch:hover .watch-thumb img { transform: scale(1.06); }
+}
+.watch-thumb {
+  position: relative;
+  flex: none;
+  width: 96px;
+  aspect-ratio: 16 / 10;
+  max-width: 100%;
+  overflow: hidden;
+  border-radius: 11px;
+}
+.watch-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.8) brightness(0.75);
+  transition: transform 500ms var(--ease-out);
+}
+.watch-icon {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--gold-metal);
+  color: #1b1307;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+}
+.watch-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+.watch-text strong { font-size: 0.9375rem; font-weight: 700; }
+.watch-text span { font-size: 0.8125rem; color: var(--faint); }
+.watch-text .nowrap { white-space: nowrap; }
+
+/* Modal player: centred, dims the page behind it */
+.player {
+  width: min(1100px, calc(100vw - 32px));
+  max-width: none;
+  max-height: none;
+  padding: 0;
+  border: 0;
+  border-radius: 18px;
+  overflow: visible;
+  background: #000;
+  color: var(--bone);
+  overscroll-behavior: contain;
+  box-shadow: 0 0 0 1px var(--line), 0 40px 120px rgba(0, 0, 0, 0.85);
+  transition: opacity 260ms var(--ease-out), transform 260ms var(--ease-out);
+}
+@starting-style {
+  .player[open] { opacity: 0; transform: scale(0.96); }
+}
+.player::backdrop {
+  background: rgba(5, 4, 3, 0.82);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+.player video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  border-radius: 18px;
+  background: #000;
+}
+.player-close {
+  position: absolute;
+  right: 0;
+  top: -50px;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(241, 233, 216, 0.1);
+  color: var(--bone);
+  cursor: pointer;
+  box-shadow: inset 0 0 0 1px var(--line);
+  transition: transform 160ms var(--ease-out), background-color 200ms ease;
+}
+.player-close:active { transform: scale(0.94); }
+@media (hover: hover) and (pointer: fine) {
+  .player-close:hover { background: rgba(241, 233, 216, 0.18); }
+}
 
 /* ---------- Footer ---------- */
 
@@ -377,11 +493,13 @@ a, button { touch-action: manipulation; -webkit-tap-highlight-color: transparent
 @media (prefers-reduced-motion: reduce) {
   .stage > * { animation: fade 300ms ease both; animation-delay: 0ms; }
   .done { animation: fade 200ms ease both; }
+  .player { transition: opacity 200ms ease; }
+  @starting-style { .player[open] { transform: none; } }
   @keyframes fade { from { opacity: 0; } }
 }
 
 @media (prefers-reduced-transparency: reduce) {
-  .countdown, .field, .done {
+  .countdown, .field, .done, .watch {
     background: #17140f;
     -webkit-backdrop-filter: none;
     backdrop-filter: none;
