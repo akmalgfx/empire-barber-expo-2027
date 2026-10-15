@@ -75,22 +75,53 @@
     tick();
   })();
 
-  /* ---------- Part II recap player ---------- */
+  /* ---------- Part II recap film ----------
+     Muted highlight loop while it's on screen; tap plays the full recap
+     with sound in the same frame. Ending returns it to the loop. */
   (() => {
-    const dlg = $('[data-player]');
-    if (!dlg) return;
-    const video = $('video', dlg);
+    const film = $('[data-film]');
+    if (!film) return;
+    const video = $('video', film);
+    const play = $('[data-film-play]', film);
+    let full = false;
+    let onScreen = false;
 
-    const open = () => {
-      // Load the 21 MB file only when someone actually asks for it
-      if (!video.src) video.src = video.dataset.src;
-      dlg.showModal();
-      video.play().catch(() => {});
+    const startPreview = () => {
+      full = false;
+      film.classList.remove('is-playing');
+      video.controls = false;
+      video.muted = true;
+      video.loop = true;
+      if (reduceMotion) { video.removeAttribute('src'); video.load(); return; } // poster only
+      if (!video.src.endsWith(video.dataset.preview)) video.src = video.dataset.preview;
+      if (onScreen) video.play().catch(() => {});
     };
-    document.querySelectorAll('[data-play]').forEach((b) => b.addEventListener('click', open));
-    $('[data-player-close]', dlg).addEventListener('click', () => dlg.close());
-    dlg.addEventListener('click', (e) => { if (e.target === dlg) dlg.close(); });
-    dlg.addEventListener('close', () => video.pause());
+
+    play.addEventListener('click', () => {
+      full = true;
+      film.classList.add('is-playing');
+      video.src = video.dataset.full; // the 21 MB file loads only now
+      video.loop = false;
+      video.muted = false;
+      video.controls = true;
+      video.play().catch(() => {});
+      video.focus({ preventScroll: true });
+    });
+    video.addEventListener('ended', () => { if (full) startPreview(); });
+
+    new IntersectionObserver(([entry]) => {
+      onScreen = entry.isIntersecting;
+      if (full) { if (!onScreen) video.pause(); return; }
+      if (reduceMotion) return;
+      if (onScreen) {
+        if (!video.src) video.src = video.dataset.preview;
+        video.play().catch(() => {});
+      } else {
+        video.pause();
+      }
+    }, { threshold: 0.25 }).observe(film);
+
+    startPreview();
   })();
 
   /* ---------- Waitlist form ---------- */

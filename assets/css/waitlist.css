@@ -339,121 +339,86 @@ a, button { touch-action: manipulation; -webkit-tap-highlight-color: transparent
 .status.is-error { color: var(--danger); }
 .status a { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
 
-/* ---------- Recap video ---------- */
+/* ---------- Recap film: the page's main asset ----------
+   Wider than the text column. Plays a muted highlight loop until tapped,
+   then switches to the full recap with sound, in place. */
 
-.watch {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  width: 100%;
-  padding: 8px 18px 8px 8px;
-  border: 0;
-  border-radius: 18px;
-  background: var(--material);
-  -webkit-backdrop-filter: blur(20px) saturate(140%);
-  backdrop-filter: blur(20px) saturate(140%);
-  box-shadow: inset 0 0 0 1px var(--line);
-  color: var(--bone);
-  font: inherit;
-  text-align: left;
-  cursor: pointer;
-  transition: transform 160ms var(--ease-out), box-shadow 200ms ease;
-}
-.watch:active { transform: scale(0.98); transition-duration: 80ms; }
-@media (hover: hover) and (pointer: fine) {
-  .watch:hover { box-shadow: inset 0 0 0 1px var(--line-gold); }
-  .watch:hover .watch-thumb img { transform: scale(1.06); }
-}
-.watch-thumb {
+.film {
   position: relative;
-  flex: none;
-  width: 96px;
-  aspect-ratio: 16 / 10;
-  max-width: 100%;
+  width: min(1080px, calc(100vw - 40px), calc(70svh * 16 / 9));
+  aspect-ratio: 16 / 9;
+  max-width: none;
+  margin: 6px 0 4px;
   overflow: hidden;
-  border-radius: 11px;
+  border-radius: 22px;
+  background: #000;
+  box-shadow: 0 0 0 1px var(--line), 0 40px 100px -30px rgba(0, 0, 0, 0.95), 0 0 120px -40px rgba(217, 178, 94, 0.35);
 }
-.watch-thumb img {
+.film-video {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: saturate(0.8) brightness(0.75);
-  transition: transform 500ms var(--ease-out);
+  background: #000;
+  filter: brightness(0.72) saturate(0.9);
+  transition: filter 400ms ease;
 }
-.watch-icon {
+.film.is-playing .film-video { filter: none; }
+/* Scrim so the play control reads over any frame; gone once the full recap plays */
+.film::after {
+  content: "";
   position: absolute;
   inset: 0;
-  margin: auto;
+  background: radial-gradient(ellipse 45% 55% at 50% 52%, rgba(10, 9, 7, 0.6), rgba(10, 9, 7, 0.15) 75%);
+  pointer-events: none;
+  transition: opacity 300ms ease;
+}
+.film.is-playing::after { opacity: 0; }
+
+.film-play {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  color: var(--bone);
+  font: inherit;
+  cursor: pointer;
+  transition: opacity 260ms var(--ease-out);
+}
+.film.is-playing .film-play { opacity: 0; pointer-events: none; }
+.film-play-icon {
   display: grid;
   place-items: center;
-  width: 30px;
-  height: 30px;
+  width: 76px;
+  height: 76px;
+  padding-left: 4px;
   border-radius: 50%;
   background: var(--gold-metal);
   color: #1b1307;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55), 0 12px 40px rgba(0, 0, 0, 0.55);
+  transition: transform 160ms var(--ease-out);
 }
-.watch-text {
+.film-play:active .film-play-icon { transform: scale(0.94); transition-duration: 80ms; }
+@media (hover: hover) and (pointer: fine) {
+  .film-play:hover .film-play-icon { transform: scale(1.06); }
+}
+.film-play:focus-visible { outline: none; }
+.film-play:focus-visible .film-play-icon { outline: 2px solid var(--gold-hi); outline-offset: 4px; }
+.film-play-text {
   display: flex;
   flex-direction: column;
   gap: 2px;
-  min-width: 0;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.8);
 }
-.watch-text strong { font-size: 0.9375rem; font-weight: 700; }
-.watch-text span { font-size: 0.8125rem; color: var(--faint); }
-.watch-text .nowrap { white-space: nowrap; }
-
-/* Modal player: centred, dims the page behind it */
-.player {
-  width: min(1100px, calc(100vw - 32px));
-  max-width: none;
-  max-height: none;
-  padding: 0;
-  border: 0;
-  border-radius: 18px;
-  overflow: visible;
-  background: #000;
-  color: var(--bone);
-  overscroll-behavior: contain;
-  box-shadow: 0 0 0 1px var(--line), 0 40px 120px rgba(0, 0, 0, 0.85);
-  transition: opacity 260ms var(--ease-out), transform 260ms var(--ease-out);
-}
-@starting-style {
-  .player[open] { opacity: 0; transform: scale(0.96); }
-}
-.player::backdrop {
-  background: rgba(5, 4, 3, 0.82);
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
-}
-.player video {
-  display: block;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 9;
-  border-radius: 18px;
-  background: #000;
-}
-.player-close {
-  position: absolute;
-  right: 0;
-  top: -50px;
-  display: grid;
-  place-items: center;
-  width: 40px;
-  height: 40px;
-  border: 0;
-  border-radius: 50%;
-  background: rgba(241, 233, 216, 0.1);
-  color: var(--bone);
-  cursor: pointer;
-  box-shadow: inset 0 0 0 1px var(--line);
-  transition: transform 160ms var(--ease-out), background-color 200ms ease;
-}
-.player-close:active { transform: scale(0.94); }
-@media (hover: hover) and (pointer: fine) {
-  .player-close:hover { background: rgba(241, 233, 216, 0.18); }
-}
+.film-play-text strong { font-size: 1.0625rem; font-weight: 700; }
+.film-play-text span { font-size: 0.8125rem; color: var(--mute); }
 
 /* ---------- Footer ---------- */
 
@@ -482,6 +447,9 @@ a, button { touch-action: manipulation; -webkit-tap-highlight-color: transparent
 
 @media (max-width: 480px) {
   .stage { gap: 22px; padding-block: 32px; }
+  .film { border-radius: 16px; }
+  .film-play-icon { width: 60px; height: 60px; }
+  .film-play-text strong { font-size: 0.9375rem; }
   .field { flex-direction: column; }
   .submit { width: 100%; }
   .cd-label { letter-spacing: 0.12em; }
@@ -493,13 +461,12 @@ a, button { touch-action: manipulation; -webkit-tap-highlight-color: transparent
 @media (prefers-reduced-motion: reduce) {
   .stage > * { animation: fade 300ms ease both; animation-delay: 0ms; }
   .done { animation: fade 200ms ease both; }
-  .player { transition: opacity 200ms ease; }
-  @starting-style { .player[open] { transform: none; } }
+
   @keyframes fade { from { opacity: 0; } }
 }
 
 @media (prefers-reduced-transparency: reduce) {
-  .countdown, .field, .done, .watch {
+  .countdown, .field, .done {
     background: #17140f;
     -webkit-backdrop-filter: none;
     backdrop-filter: none;
