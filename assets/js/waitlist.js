@@ -9,7 +9,7 @@
      POSTed form and answers 2xx works. While empty, the form says sign-ups
      aren't open yet instead of pretending to save the email. */
   const WAITLIST_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwFtcj9A4fkYdwW3phf9atlU3h77WJBPHnGCW5EkNauZqP4pgt9msn6fnEnaxzat4rO/exec';
-  const INSTAGRAM_URL = 'https://www.instagram.com/empirebarbersupply/';
+  const INSTAGRAM_URL = 'https://www.instagram.com/empirebarberexpo/';
 
   // Tickets drop Nov 9, 2026 at 12:00 AM Mountain Standard Time
   const EVENT_START = new Date('2026-11-09T00:00:00-07:00').getTime();
@@ -185,7 +185,7 @@
       if (trap.value) { finish(); return; }
 
       if (!WAITLIST_ENDPOINT) {
-        say(`Sign-ups open soon. Until then, follow <a href="${INSTAGRAM_URL}" target="_blank" rel="noopener">@empirebarbersupply</a> for the ticket drop.`);
+        say(`Sign-ups open soon. Until then, follow <a href="${INSTAGRAM_URL}" target="_blank" rel="noopener">@empirebarberexpo</a> for the ticket drop.`);
         return;
       }
 

@@ -567,6 +567,15 @@ a, button { touch-action: manipulation; -webkit-tap-highlight-color: transparent
 /* ---------- Narrow screens ---------- */
 
 @media (max-width: 480px) {
+  /* Logo only, centred; the name stays for screen readers */
+  .brand { display: flex; justify-content: center; }
+  .brand-mark span {
+    position: absolute;
+    width: 1px; height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
   .stage { gap: 22px; padding-block: 32px; }
   .film { border-radius: 16px; }
   .film-title { top: 12px; left: 12px; right: 12px; gap: 9px; }
