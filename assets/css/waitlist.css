@@ -111,6 +111,37 @@ a, button { touch-action: manipulation; -webkit-tap-highlight-color: transparent
   text-transform: uppercase;
 }
 .brand img { width: 60px; height: 60px; object-fit: contain; }
+.brand {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+/* Header link to the other page: a quiet gold-edged pill */
+.nav-pill {
+  display: inline-flex;
+  align-items: center;
+  height: 44px;
+  padding: 0 20px;
+  border-radius: 999px;
+  background: var(--material);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  backdrop-filter: blur(20px) saturate(140%);
+  box-shadow: inset 0 0 0 1px var(--line-gold);
+  color: var(--gold-hi);
+  font-size: 0.75rem;
+  font-weight: 800;
+  font-stretch: 115%;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: transform 160ms var(--ease-out), background-color 200ms ease, color 200ms ease;
+}
+.nav-pill:active { transform: scale(0.97); transition-duration: 80ms; }
+@media (hover: hover) and (pointer: fine) {
+  .nav-pill:hover { background: rgba(217, 178, 94, 0.16); color: #fff; }
+}
 
 /* ---------- Stage ---------- */
 
@@ -567,8 +598,8 @@ a, button { touch-action: manipulation; -webkit-tap-highlight-color: transparent
 /* ---------- Narrow screens ---------- */
 
 @media (max-width: 480px) {
-  /* Logo only, centred; the name stays for screen readers */
-  .brand { display: flex; justify-content: center; }
+  /* Logo only, with the header pill opposite; the name stays for screen readers */
+  .nav-pill { height: 40px; padding: 0 16px; font-size: 0.6875rem; }
   .brand-mark span {
     position: absolute;
     width: 1px; height: 1px;

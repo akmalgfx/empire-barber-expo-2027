@@ -1,0 +1,259 @@
+/* =========================================================
+   Empire Barber Expo 2027 · Vendors
+   Builds on waitlist.css: same ink, gold and material cards,
+   laid out as a longer page with three sections.
+   ========================================================= */
+
+h2 { margin: 0; }
+
+.vendor {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(56px, 9vw, 96px);
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding-block: 28px 64px;
+}
+
+/* ---------- Hero ---------- */
+
+.v-hero { padding-block: clamp(32px, 8vw, 72px) 0; }
+.v-hero .title-fusion { font-size: clamp(2.6rem, 12vw, 4.75rem); }
+.v-hero .title-fusion .title-kicker {
+  max-width: 26ch;
+  font-size: clamp(1.15rem, 4.6vw, 1.6rem);
+  text-wrap: balance;
+}
+.v-cta {
+  display: inline-flex;
+  align-items: center;
+  height: 52px;
+  padding: 0 28px;
+  border-radius: 14px;
+}
+
+/* ---------- Sections ---------- */
+
+.v-section {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  scroll-margin-top: 24px;
+}
+.v-title {
+  font-weight: 900;
+  font-stretch: 62%;
+  font-size: clamp(2.1rem, 8vw, 3.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+.v-title em { font-style: normal; }
+
+/* ---------- Floor plan & vendors ---------- */
+
+.v-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: 10px;
+  border-radius: 20px;
+  background: var(--material);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  backdrop-filter: blur(20px) saturate(140%);
+  box-shadow: inset 0 1px 0 rgba(255, 240, 200, 0.08), inset 0 0 0 1px var(--line), 0 20px 50px -24px rgba(0, 0, 0, 0.9);
+}
+.v-stat { padding: 20px 22px; }
+.v-stat + .v-stat { box-shadow: -1px 0 0 var(--line); }
+.v-stat p:last-child {
+  margin-top: 6px;
+  font-size: 0.9375rem;
+  line-height: 1.4;
+  color: var(--mute);
+}
+.v-num {
+  font-weight: 800;
+  font-stretch: 62%;
+  font-size: clamp(2.75rem, 10vw, 4rem);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.plan { margin: 6px 0 0; }
+/* The plan is drawn on white, so it sits on a paper sheet rather than the dark material */
+.plan-sheet {
+  display: block;
+  padding: clamp(8px, 2vw, 20px);
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 0 0 1px var(--line), 0 40px 100px -30px rgba(0, 0, 0, 0.95), 0 0 120px -40px rgba(217, 178, 94, 0.3);
+  cursor: zoom-in;
+  transition: transform 220ms var(--ease-out);
+}
+.plan-sheet img { width: 100%; }
+.plan-sheet:active { transform: scale(0.995); }
+
+.plan-key {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 22px;
+  margin-top: 14px;
+  font-size: 0.875rem;
+  color: var(--mute);
+}
+.plan-key span { display: inline-flex; align-items: center; gap: 8px; }
+.sw { width: 14px; height: 14px; border-radius: 3px; }
+.sw-high { background: #d3a52f; }
+.sw-std { background: #56606a; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2); }
+.plan-size { color: var(--faint); }
+.plan-open { margin-left: auto; color: var(--faint); }
+
+/* ---------- What's included ---------- */
+
+.incl {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 16px;
+  margin-top: 10px;
+}
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.tile {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 18px;
+  border-radius: 18px;
+  background: var(--material);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  backdrop-filter: blur(20px) saturate(140%);
+  box-shadow: inset 0 1px 0 rgba(255, 240, 200, 0.08), inset 0 0 0 1px var(--line);
+}
+.tile p { font-size: 0.9375rem; line-height: 1.35; color: var(--mute); text-wrap: pretty; }
+.tile-big {
+  font-weight: 900;
+  font-stretch: 62%;
+  font-size: 3.25rem;
+  line-height: 0.85;
+}
+/* The passes are the one gold tile, like the deck */
+.tile-hl { background: var(--gold-metal); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5); }
+.tile-hl .tile-big, .tile-hl p { color: #1b1307; }
+.tile-hl p { font-weight: 600; }
+
+/* Booth illustrations sit on the deck's cream panel, which matches their own background */
+.incl-art {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 0;
+  padding: clamp(16px, 3vw, 28px);
+  border-radius: 20px;
+  background: #ede3d1;
+  box-shadow: 0 0 0 1px var(--line), 0 30px 80px -30px rgba(0, 0, 0, 0.9);
+}
+.incl-art img { flex: 1; min-width: 0; }
+
+.fine {
+  max-width: 70ch;
+  margin-top: 6px;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--mute);
+  text-wrap: pretty;
+}
+.fine b { color: var(--bone); font-weight: 700; }
+
+/* ---------- Contact form ---------- */
+
+.vform-wrap { width: 100%; max-width: 760px; margin-top: 10px; }
+
+.vform {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: clamp(20px, 4vw, 32px);
+  border-radius: 22px;
+  background: var(--material);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  backdrop-filter: blur(20px) saturate(140%);
+  box-shadow: inset 0 1px 0 rgba(255, 240, 200, 0.08), inset 0 0 0 1px var(--line), 0 30px 80px -30px rgba(0, 0, 0, 0.9);
+}
+.vf { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.vf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.vf label {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: var(--bone);
+}
+.vf label span { color: var(--gold); }
+
+.vf input,
+.vf textarea {
+  width: 100%;
+  border: 0;
+  background: rgba(241, 233, 216, 0.06);
+  color: var(--bone);
+  font: inherit;
+  font-size: 1rem; /* 16px stops iOS from zooming on focus */
+  box-shadow: inset 0 0 0 1px var(--line);
+  transition: box-shadow 200ms ease, background-color 200ms ease;
+}
+.vf input { height: 50px; padding: 0 18px; border-radius: 999px; }
+.vf textarea { min-height: 150px; padding: 14px 18px; border-radius: 18px; resize: vertical; line-height: 1.5; }
+.vf input::placeholder { color: var(--faint); }
+.vf input:focus,
+.vf textarea:focus {
+  outline: none;
+  background: rgba(241, 233, 216, 0.08);
+  box-shadow: inset 0 0 0 1px var(--line-gold), 0 0 0 4px rgba(217, 178, 94, 0.12);
+}
+.vf [aria-invalid="true"] { box-shadow: inset 0 0 0 1px rgba(255, 138, 122, 0.7); }
+
+.vform-note { font-size: 0.9375rem; line-height: 1.55; color: var(--mute); text-wrap: pretty; }
+
+.vform-send { align-self: flex-start; height: 50px; padding: 0 34px; border-radius: 999px; }
+.vform .status { margin-top: -8px; }
+
+.vdone { justify-content: flex-start; min-height: 80px; padding: 20px 24px; }
+
+.vform-alt { margin-top: 16px; font-size: 0.875rem; color: var(--faint); }
+.vform-alt a { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
+
+/* ---------- Narrow screens ---------- */
+
+@media (max-width: 760px) {
+  .incl { grid-template-columns: 1fr; }
+  .plan-open { margin-left: 0; }
+}
+
+@media (max-width: 480px) {
+  .vendor { padding-block: 12px 48px; }
+  .v-stats { grid-template-columns: 1fr; }
+  .v-stat + .v-stat { box-shadow: 0 -1px 0 var(--line); }
+  .tiles { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .tile { padding: 16px; }
+  .tile-big { font-size: 2.75rem; }
+  .vf-row { grid-template-columns: 1fr; }
+  .vf input { height: 54px; font-size: 1.0625rem; }
+  .vform-send { align-self: stretch; height: 54px; }
+  .v-cta { width: 100%; justify-content: center; height: 54px; }
+  .plan-sheet { border-radius: 14px; }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .v-stats, .tile:not(.tile-hl), .vform {
+    background: #17140f;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}
