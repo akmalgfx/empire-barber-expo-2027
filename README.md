@@ -1,4 +1,4 @@
-# Empire Barber Expo 2027 · The 3Peat
+# Empire Barber Expo 2027 · Part 3
 
 Landing page for Part III of the Empire Barber Expo: Sunday, May 2, 2027 at the Big Four Roadhouse, Calgary.
 

@@ -164,6 +164,21 @@ a, button { touch-action: manipulation; -webkit-tap-highlight-color: transparent
   background-clip: text;
   color: transparent;
 }
+.title-fusion {
+  font-size: clamp(2.75rem, 12.5vw, 5.75rem);
+  line-height: 0.92;
+}
+.title-fusion .title-kicker { margin-top: 0.3em; }
+.cd-caption {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  font-stretch: 125%;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: -6px;
+}
+
 .title-kicker {
   margin-top: 0.1em;
   font-family: var(--serif);

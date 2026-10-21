@@ -11,8 +11,8 @@
   const WAITLIST_ENDPOINT = '';
   const INSTAGRAM_URL = 'https://www.instagram.com/empirebarbersupply/';
 
-  // Doors open 9:00 AM Mountain Daylight Time, Sunday May 2, 2027
-  const EVENT_START = new Date('2027-05-02T09:00:00-06:00').getTime();
+  // Tickets drop Nov 9, 2026 at 12:00 AM Mountain Standard Time
+  const EVENT_START = new Date('2026-11-09T00:00:00-07:00').getTime();
 
   const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const $ = (sel, root = document) => root.querySelector(sel);
