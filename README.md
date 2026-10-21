@@ -21,7 +21,7 @@ Then open http://localhost:5173.
 
 ## Launch the full page
 
-Swap the two pages back: move `expo-2027-preview-lyqui6/index.html` to `index.html` (change its `../assets/` paths to `assets/` and remove the `noindex` meta), and move the waitlist to a subfolder or remove it.
+Swap the two pages back: move `expo-2027-preview-lyqui6/index.html` to `index.html` (change its `../assets/` and `../vendors/` paths to `assets/` and `vendors/`, and remove the `noindex` meta), and move the waitlist to a subfolder or remove it.
 
 ## Connect the waitlist
 
@@ -33,4 +33,4 @@ The form on `/vendors/` posts to the same Apps Script as the waitlist (`VENDOR_E
 
 ## Update links
 
-Ticket, competition, vendor, hotel and map links live in `LINKS` at the top of `assets/js/main.js`. The ticket links currently point to the 2026 Showpass event; swap in the 2027 URL when it goes live.
+Ticket, competition, Education Day, hotel and map links live in `LINKS` at the top of `assets/js/main.js`. The ticket links (including Education Day) currently point to the 2026 Showpass event; swap in the 2027 URL when it goes live.

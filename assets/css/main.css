@@ -462,7 +462,7 @@ p, li, dd { text-wrap: pretty; }
   font-weight: 900;
   font-stretch: 62%;
   text-transform: uppercase;
-  font-size: clamp(104px, 23.5vw, 380px);
+  font-size: clamp(96px, 21.5vw, 360px);
   line-height: 0.8;
   letter-spacing: -0.01em;
   margin-left: -0.03em;
@@ -471,11 +471,13 @@ p, li, dd { text-wrap: pretty; }
 /* text-shadow shows through gradient-clipped (transparent) glyphs and muddies them; use drop-shadow instead */
 .hero-title em { font-style: normal; text-shadow: none; filter: drop-shadow(0 4px 24px rgba(10, 9, 7, 0.6)); }
 
-/* In flow under the title, right-aligned beneath "PEAT", so it never sits on top of the glyphs */
+/* In flow under the title, right-aligned beneath "FUSION", so it never sits on top of the glyphs */
 .hero-kicker {
   display: block;
   margin-top: 0.03em;
-  padding: 0.04em 0.12em 0.16em;
+  /* Extra bottom room so the tilted line's left end isn't clipped by .ln; the negative margin keeps the layout where it was */
+  padding: 0.04em 0.12em 0.7em;
+  margin-bottom: -0.54em;
   text-align: right;
   font-family: var(--serif);
   font-style: italic;
@@ -1159,7 +1161,8 @@ p, li, dd { text-wrap: pretty; }
   border-top: 1px solid var(--line);
   font-size: 16px;
 }
-.set time {
+.set time,
+.set .when {
   font-weight: 700;
   font-stretch: 80%;
   font-size: 15px;
@@ -1167,6 +1170,8 @@ p, li, dd { text-wrap: pretty; }
   color: var(--gold);
   font-variant-numeric: tabular-nums;
 }
+.set time,
+.set .when { white-space: nowrap; }
 .set .note { margin-top: 16px; }
 
 /* ---------- Tickets ---------- */
@@ -1258,6 +1263,42 @@ p, li, dd { text-wrap: pretty; }
 }
 .t-main .btn { margin-top: auto; align-self: flex-start; }
 
+.t-price {
+  display: flex;
+  align-items: flex-end;
+  gap: 14px;
+  margin: -8px 0 18px;
+}
+.t-price strong {
+  font-weight: 900;
+  font-stretch: 62%;
+  font-size: clamp(56px, 5vw, 76px);
+  line-height: 0.82;
+  font-variant-numeric: tabular-nums;
+}
+.t-price span {
+  font-size: 11px;
+  font-weight: 600;
+  font-stretch: 118%;
+  letter-spacing: 0.14em;
+  line-height: 1.5;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.t-tiers {
+  border-top: 1px solid var(--line);
+  gap: 0 !important;
+  margin-bottom: 24px !important;
+}
+.t-main .t-tiers li {
+  justify-content: space-between;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 13px;
+}
+.t-main .t-tiers li::before { content: none; }
+.t-tiers b { font-weight: 800; font-variant-numeric: tabular-nums; color: var(--bone); }
+
 .t-stub {
   position: relative;
   display: grid;
@@ -1295,6 +1336,10 @@ p, li, dd { text-wrap: pretty; }
 .t-gold .label { color: #4a3510; }
 .t-gold .t-main ul { color: rgba(27, 19, 7, 0.78); }
 .t-gold .t-main li::before { color: #4a3510; }
+.t-gold .t-price span { color: #4a3510; }
+.t-gold .t-tiers,
+.t-gold .t-main .t-tiers li { border-color: rgba(27, 19, 7, 0.2); }
+.t-gold .t-tiers b { color: #1b1307; }
 .t-gold .t-stub { background-image: repeating-linear-gradient(180deg, rgba(27, 19, 7, 0.4) 0 6px, transparent 6px 12px); }
 .t-gold .t-stub span { color: rgba(27, 19, 7, 0.6); }
 .t-gold .t-sheen { mix-blend-mode: overlay; background: radial-gradient(circle at var(--sx, 50%) var(--sy, 50%), rgba(255, 255, 255, 0.55), transparent 42%); }
@@ -1346,23 +1391,18 @@ p, li, dd { text-wrap: pretty; }
 .marquee + .marquee { margin-top: 6px; }
 .marquee-track { animation-duration: 48s; }
 .marquee.reverse .marquee-track { animation-direction: reverse; animation-duration: 56s; }
-.marquee span {
-  padding: 0 0.3em;
-  font-weight: 900;
-  font-stretch: 62%;
-  font-size: clamp(54px, 8vw, 132px);
-  line-height: 1.02;
-  text-transform: uppercase;
-  white-space: nowrap;
-}
-.marquee span.o {
-  color: transparent;
-  -webkit-text-stroke: 1.5px rgba(217, 178, 94, 0.85);
-}
-.marquee i {
-  font-style: normal;
-  font-size: clamp(18px, 2vw, 30px);
-  color: var(--gold);
+/* Vendor logos: same one-colour treatment as the headline sponsors, sized so wide and square marks carry similar weight */
+.vendors-title { margin-bottom: clamp(28px, 4vw, 48px); }
+.marquee-logos { --logo-h: clamp(40px, 5vw, 72px); }
+.marquee-logos + .marquee-logos { margin-top: clamp(20px, 3vw, 40px); }
+.marquee-logos .marquee-track { min-height: calc(var(--logo-h) * 1.2); }
+.marquee-logos img {
+  flex: none;
+  height: calc(var(--logo-h) * var(--s, 1));
+  width: auto;
+  margin: 0 clamp(28px, 3.5vw, 56px);
+  filter: brightness(0) invert(0.92) sepia(0.25);
+  opacity: 0.85;
 }
 
 /* ---------- Venue ---------- */
@@ -1397,7 +1437,8 @@ p, li, dd { text-wrap: pretty; }
 }
 .facts div {
   display: grid;
-  grid-template-columns: 100px 1fr;
+  grid-template-columns: 120px 1fr;
+  gap: 16px;
   padding: 14px 0;
   border-bottom: 1px solid var(--line);
 }
@@ -1636,7 +1677,7 @@ p, li, dd { text-wrap: pretty; }
 
   .hero { min-height: 640px; }
   .hero-inner { padding-bottom: 44px; }
-  .hero-title { font-size: clamp(80px, 24vw, 200px); }
+  .hero-title { font-size: clamp(64px, 22vw, 200px); }
   .hero-kicker { font-size: 0.34em; }
   /* nowrap matters: a wrapping column sizes each column to its widest item,
      which pushed the countdown and buttons past the right edge */
@@ -1672,7 +1713,7 @@ p, li, dd { text-wrap: pretty; }
   .acts-track::-webkit-scrollbar { display: none; }
   .acts-intro { display: none; }
   .acts-sticky::before {
-    content: "One day. Six acts.";
+    content: "Expo day.";
     display: block;
     padding: 0 var(--gutter) 28px;
     font-weight: 900;
@@ -1727,7 +1768,7 @@ p, li, dd { text-wrap: pretty; }
   }
 
   .setlist { grid-template-columns: 1fr; }
-  .set li { grid-template-columns: 104px 1fr; }
+  .set li { grid-template-columns: 112px 1fr; gap: 12px; }
 
   .tickets-head { grid-template-columns: 1fr; gap: 18px; }
   .ticket-row { grid-template-columns: 1fr; }

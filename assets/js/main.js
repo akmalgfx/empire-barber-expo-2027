@@ -1,4 +1,4 @@
-/* Empire Barber Expo 2027 · The 3Peat
+/* Empire Barber Expo 2027 · The Fusion
    Vanilla JS. Transform/opacity only in animation paths. */
 
 (() => {
@@ -12,7 +12,7 @@
     // Replace with the 2027 Showpass event URL when it is live.
     tickets: 'https://www.showpass.com/the-empire-barber-expo-2026/',
     compete: 'https://www.showpass.com/the-empire-barber-expo-2026/',
-    vendors: 'https://www.empirebarber.ca/pages/floor-plan-vendors',
+    education: 'https://www.showpass.com/the-empire-barber-expo-2026/',
     hotel: 'https://www.marriott.com/event-reservations/reservation-link.mi?id=1765828965307&key=GRP&app=resvlink',
     map: 'https://www.google.com/maps/search/?api=1&query=Big+Four+Roadhouse+Calgary',
   };
