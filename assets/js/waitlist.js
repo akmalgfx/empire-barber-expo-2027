@@ -8,7 +8,7 @@
      form URL: 'https://formspree.io/f/abcdwxyz'. Any endpoint that accepts a
      POSTed form and answers 2xx works. While empty, the form says sign-ups
      aren't open yet instead of pretending to save the email. */
-  const WAITLIST_ENDPOINT = '';
+  const WAITLIST_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwFtcj9A4fkYdwW3phf9atlU3h77WJBPHnGCW5EkNauZqP4pgt9msn6fnEnaxzat4rO/exec';
   const INSTAGRAM_URL = 'https://www.instagram.com/empirebarbersupply/';
 
   // Tickets drop Nov 9, 2026 at 12:00 AM Mountain Standard Time
@@ -194,12 +194,13 @@
       say('');
 
       try {
-        const res = await fetch(WAITLIST_ENDPOINT, {
-          method: 'POST',
-          headers: { Accept: 'application/json' },
-          body: new FormData(form),
-        });
-        if (!res.ok) throw new Error(String(res.status));
+        // Google Apps Script web apps don't send CORS headers, so the reply
+        // is opaque: a request that goes through counts as a sign-up.
+        const google = /script\.google(usercontent)?\.com/.test(WAITLIST_ENDPOINT);
+        const res = await fetch(WAITLIST_ENDPOINT, google
+          ? { method: 'POST', mode: 'no-cors', body: new URLSearchParams({ email }) }
+          : { method: 'POST', headers: { Accept: 'application/json' }, body: new FormData(form) });
+        if (!google && !res.ok) throw new Error(String(res.status));
         finish();
       } catch {
         say('That didn’t go through. Check your connection and try again.', true);
