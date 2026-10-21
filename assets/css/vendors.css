@@ -6,6 +6,12 @@
 
 h2 { margin: 0; }
 
+/* In-page links (Request a Booth) glide to their section */
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
 .vendor {
   display: flex;
   flex-direction: column;
