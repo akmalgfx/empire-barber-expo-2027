@@ -164,11 +164,73 @@ a, button { touch-action: manipulation; -webkit-tap-highlight-color: transparent
   background-clip: text;
   color: transparent;
 }
+/* Both lines share one size, set so "Barbering & Hairstyling." fits the column */
 .title-fusion {
-  font-size: clamp(2.75rem, 12.5vw, 5.75rem);
-  line-height: 0.92;
+  font-size: clamp(1.5rem, 8.7vw, 3.35rem);
+  line-height: 0.95;
 }
-.title-fusion .title-kicker { margin-top: 0.3em; }
+.title-fusion .title-pair { white-space: nowrap; }
+.title-fusion .title-kicker {
+  margin-top: 0.5em;
+  font-size: clamp(1.15rem, 4.6vw, 1.75rem);
+}
+
+/* Free-pass offer: the page's one loud call-out */
+.perk {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  width: 100%;
+  padding: 18px 20px;
+  border-radius: 20px;
+  text-align: left;
+  background:
+    linear-gradient(135deg, rgba(217, 178, 94, 0.16), rgba(217, 178, 94, 0.04) 60%),
+    var(--material);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  backdrop-filter: blur(20px) saturate(140%);
+  box-shadow: inset 0 1px 0 rgba(255, 240, 200, 0.12), inset 0 0 0 1px var(--line-gold), 0 20px 50px -24px rgba(0, 0, 0, 0.9);
+}
+.perk-num {
+  flex: none;
+  font-weight: 900;
+  font-stretch: 62%;
+  font-size: 5.25rem;
+  line-height: 0.8;
+  padding-right: 18px;
+  border-right: 1px solid var(--line-gold);
+}
+.perk-kicker {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  font-stretch: 125%;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.perk-title {
+  margin-top: 4px;
+  font-weight: 900;
+  font-stretch: 75%;
+  font-size: 1.6rem;
+  line-height: 1.05;
+  text-transform: uppercase;
+  color: var(--bone);
+  text-wrap: balance;
+}
+.perk-text {
+  margin-top: 8px;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--mute);
+  text-wrap: pretty;
+}
+@media (max-width: 480px) {
+  .perk { gap: 14px; padding: 16px; }
+  .perk-num { font-size: 3.9rem; padding-right: 14px; }
+  .perk-title { font-size: 1.3rem; }
+  .perk-text { font-size: 0.875rem; }
+}
 .cd-caption {
   font-size: 0.6875rem;
   font-weight: 600;
