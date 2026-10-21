@@ -210,4 +210,37 @@
       }
     });
   })();
+
+  /* ---------- Vendor prompt ----------
+     Opens once, a few seconds in. Closing it (X, "Not a vendor", Esc or a
+     click outside) is remembered in this browser so it doesn't come back. */
+  (() => {
+    const pop = $('[data-vpop]');
+    if (!pop) return;
+    const KEY = 'ebx-vendor-prompt-seen';
+    try { if (localStorage.getItem(KEY)) return; } catch {}
+
+    let lastFocus = null;
+    const close = () => {
+      pop.hidden = true;
+      try { localStorage.setItem(KEY, '1'); } catch {}
+      document.removeEventListener('keydown', onKey);
+      lastFocus?.focus?.();
+    };
+    const onKey = (e) => { if (e.key === 'Escape') close(); };
+
+    pop.addEventListener('click', (e) => {
+      if (e.target === pop || e.target.closest('[data-vpop-close]')) close();
+    });
+    $('.vpop-go', pop).addEventListener('click', () => {
+      try { localStorage.setItem(KEY, '1'); } catch {}
+    });
+
+    setTimeout(() => {
+      lastFocus = document.activeElement;
+      pop.hidden = false;
+      document.addEventListener('keydown', onKey);
+      $('.vpop-go', pop).focus({ preventScroll: true });
+    }, 2500);
+  })();
 })();

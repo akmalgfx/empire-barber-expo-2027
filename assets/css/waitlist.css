@@ -595,6 +595,73 @@ a, button { touch-action: manipulation; -webkit-tap-highlight-color: transparent
   .foot a:hover { color: var(--gold); }
 }
 
+/* ---------- Vendor prompt: one small card over a dimmed page ---------- */
+
+.vpop {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(10, 9, 7, 0.6);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  animation: fade-in 260ms ease both;
+}
+.vpop-card {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  padding: 28px 26px 24px;
+  border-radius: 22px;
+  text-align: center;
+  background:
+    linear-gradient(135deg, rgba(217, 178, 94, 0.16), rgba(217, 178, 94, 0.04) 60%),
+    #16130e;
+  box-shadow: inset 0 1px 0 rgba(255, 240, 200, 0.12), inset 0 0 0 1px var(--line-gold), 0 40px 100px -30px rgba(0, 0, 0, 0.95);
+  animation: materialize 420ms var(--ease-out) both;
+}
+.vpop-title {
+  margin-top: 8px;
+  font-weight: 900;
+  font-stretch: 62%;
+  font-size: 3rem;
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+.vpop-text { margin-top: 12px; font-size: 0.9375rem; color: var(--mute); text-wrap: pretty; }
+.vpop-actions { display: flex; flex-direction: column; gap: 8px; margin-top: 20px; }
+.vpop-go { display: grid; place-items: center; height: 52px; }
+.vpop-skip {
+  height: 44px;
+  border: 0;
+  background: none;
+  color: var(--faint);
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.vpop-x {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(241, 233, 216, 0.08);
+  color: var(--mute);
+  cursor: pointer;
+}
+@media (hover: hover) and (pointer: fine) {
+  .vpop-skip:hover, .vpop-x:hover { color: var(--bone); }
+}
+@keyframes fade-in { from { opacity: 0; } }
+
 /* ---------- Narrow screens ---------- */
 
 @media (max-width: 480px) {

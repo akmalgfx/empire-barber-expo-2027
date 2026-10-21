@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
   <link rel="preload" as="image" href="assets/img/hero-poster.webp" fetchpriority="high">
-  <link rel="stylesheet" href="assets/css/waitlist.css?v=17">
+  <link rel="stylesheet" href="assets/css/waitlist.css?v=18">
 </head>
 <body>
   <div class="backdrop" aria-hidden="true">
@@ -111,6 +111,22 @@
     </footer>
   </div>
 
-  <script src="assets/js/waitlist.js?v=8" defer></script>
+  <!-- Vendor prompt: shown once, a few seconds after the page opens -->
+  <div class="vpop" data-vpop hidden>
+    <div class="vpop-card" role="dialog" aria-modal="true" aria-labelledby="vpop-title">
+      <button class="vpop-x" type="button" data-vpop-close aria-label="Close">
+        <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+      <p class="perk-kicker">Vendors &amp; brands</p>
+      <p class="vpop-title" id="vpop-title">Are you a <span class="gold">vendor?</span></p>
+      <p class="vpop-text">Get your brand in front of barbers and stylists on May 2nd. See the floor plan and request a booth.</p>
+      <div class="vpop-actions">
+        <a class="submit vpop-go" href="vendors/">Become a Vendor</a>
+        <button class="vpop-skip" type="button" data-vpop-close>Not a vendor</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/waitlist.js?v=9" defer></script>
 </body>
 </html>
