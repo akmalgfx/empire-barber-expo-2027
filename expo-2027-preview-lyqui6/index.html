@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
   <link rel="preload" as="image" href="../assets/img/hero-poster.webp">
-  <link rel="stylesheet" href="../assets/css/main.css?v=19">
+  <link rel="stylesheet" href="../assets/css/main.css?v=20">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -105,17 +105,28 @@
 
     <!-- ============ STORY ============ -->
     <section class="story" id="story" aria-labelledby="story-title">
-      <h2 class="sr-only" id="story-title">The story so far</h2>
-      <p class="eyebrow">Part III · 2027</p>
-      <div class="story-grid">
-      <p class="story-text" data-words>
-        <em>Part III</em> brings barbering and hairstyling together: education, competitions and the industry’s brands under one roof. New this year, a second day just for education.
-      </p>
+      <div class="story-head">
+        <div>
+          <p class="eyebrow">Part III · 2027</p>
+          <h2 class="display h-xl" id="story-title">Learn, compete<br><em class="serif-gold">and shop.</em></h2>
+        </div>
+        <ol class="story-days">
+          <li data-reveal>
+            <p class="label">Sun · May 02</p>
+            <h3 class="display">Expo Day</h3>
+            <p>Education, competitions and the trade show.</p>
+          </li>
+          <li data-reveal style="--d:100ms">
+            <p class="label">New · Mon · May 03</p>
+            <h3 class="display">Education Day</h3>
+            <p>Four classes, four educators.</p>
+          </li>
+        </ol>
+      </div>
       <figure class="story-media" data-reveal="clip">
         <img src="../assets/img/story-crowd.webp" alt="Attendees seated in front of the main stage under string lights, with the exhibitor floor behind" loading="lazy" decoding="async" width="1600" height="702">
         <figcaption>Part II · <time datetime="2026-04-12">April 12, 2026</time></figcaption>
       </figure>
-      </div>
     </section>
 
     <!-- ============ THE SHOW (horizontal) ============ -->
@@ -166,7 +177,7 @@
           </article>
 
           <article class="act">
-            <div class="act-media"><video aria-hidden="true" data-inview muted loop playsinline preload="none" poster="../assets/img/runway-1.webp" data-src="../assets/video/clip-runway.mp4"></video></div>
+            <div class="act-media"><video aria-hidden="true" data-inview muted loop playsinline preload="none" poster="../assets/img/education.webp" data-src="../assets/video/clip-education.mp4"></video></div>
             <div class="act-copy">
               <span class="act-no">05</span>
               <h3 class="display">Education</h3>
@@ -175,7 +186,7 @@
           </article>
 
           <article class="act">
-            <div class="act-media"><video aria-hidden="true" data-inview muted loop playsinline preload="none" poster="../assets/img/awards.webp" data-src="../assets/video/clip-awards.mp4"></video></div>
+            <div class="act-media"><video aria-hidden="true" data-inview muted loop playsinline preload="none" poster="../assets/img/trophies.webp" data-src="../assets/video/clip-trophies.mp4"></video></div>
             <div class="act-copy">
               <span class="act-no">06</span>
               <h3 class="display">Awards</h3>

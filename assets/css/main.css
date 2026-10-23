@@ -671,26 +671,39 @@ p, li, dd { text-wrap: pretty; }
   margin: 0 auto;
 }
 
-.story-grid {
+.story-head {
   display: grid;
-  grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: clamp(32px, 5vw, 90px);
-  align-items: start;
+  align-items: end;
+  margin-bottom: clamp(40px, 5vw, 72px);
 }
-.story-media {
-  position: sticky;
-  top: 14vh;
-  margin-top: 0.4em;
+.story-days {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-top: 1px solid var(--line-gold);
 }
+.story-days li {
+  padding: clamp(18px, 2vw, 28px) clamp(16px, 2vw, 28px) 0 0;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 700ms ease, transform 900ms var(--ease-out);
+  transition-delay: var(--d, 0ms);
+}
+.story-days li + li { padding-left: clamp(16px, 2vw, 28px); border-left: 1px solid var(--line); }
+.story-days li.is-in { opacity: 1; transform: none; }
+.story-days h3 { margin: 10px 0 8px; font-size: clamp(30px, 3vw, 52px); }
+.story-days p:last-child { color: var(--mute); font-size: 15px; line-height: 1.45; }
+
 /* The clip sits on the image, not the observed figure: IntersectionObserver
    treats a fully clipped target as invisible and would never fire. */
 .story-media img {
   width: 100%;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 16 / 7;
   object-fit: cover;
   filter: contrast(1.08) saturate(0.75);
   clip-path: inset(0 0 100% 0);
-  transform: scale(1.15);
+  transform: scale(1.08);
   transition: clip-path 1400ms var(--ease-in-out), transform 2000ms var(--ease-out);
 }
 .story-media.is-in img { clip-path: inset(0 0 0 0); transform: none; }
@@ -702,29 +715,6 @@ p, li, dd { text-wrap: pretty; }
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--faint);
-}
-
-.story-text {
-  max-width: 22ch;
-  font-weight: 800;
-  font-stretch: 72%;
-  font-size: clamp(36px, 5.4vw, 88px);
-  line-height: 0.98;
-  letter-spacing: -0.01em;
-  text-transform: uppercase;
-}
-.story-text em {
-  font-family: var(--serif);
-  font-style: italic;
-  font-weight: 400;
-  font-stretch: 100%;
-  text-transform: none;
-  color: var(--gold);
-  letter-spacing: -0.02em;
-}
-.story-text .w {
-  opacity: 0.16;
-  transition: opacity 240ms ease;
 }
 
 .stats {
@@ -1801,8 +1791,7 @@ p, li, dd { text-wrap: pretty; }
     cursor: pointer;
   }
 
-  .story-grid { grid-template-columns: 1fr; }
-  .story-media { position: relative; top: auto; margin-top: 0; }
+  .story-head { grid-template-columns: 1fr; align-items: start; }
   .story-media img { aspect-ratio: 4 / 3; }
 
   .wall-head { flex-direction: column; align-items: flex-start; }
@@ -1880,7 +1869,7 @@ p, li, dd { text-wrap: pretty; }
   .hero-meta, .hero-bar, .set, .vendor-cta { transform: none; }
   .venue-media img, .story-media img { clip-path: none; transform: none; }
   .stat-num::after { clip-path: none; transition: none; }
-  .story-text .w { opacity: 1 !important; }
+  .story-days li { opacity: 1; transform: none; transition: none; }
   .acts { height: auto !important; }
   .acts-sticky { position: static; height: auto; overflow: visible; padding: 40px 0; }
   .acts-track { width: auto; overflow-x: auto; transform: none !important; }
