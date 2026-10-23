@@ -244,7 +244,20 @@
         io.unobserve(e.target);
       });
     }, { threshold: 0.18, rootMargin: '0px 0px -8% 0px' });
-    els.forEach((el) => io.observe(el));
+
+    // Image wipes start as soon as the frame enters, but only once the image is decoded,
+    // so the panel never slides off an empty box
+    const media = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        media.unobserve(e.target);
+        const img = e.target.querySelector('img');
+        const ready = img && img.decode ? img.decode().catch(() => {}) : Promise.resolve();
+        ready.then(() => e.target.classList.add('is-in'));
+      });
+    }, { threshold: 0, rootMargin: '0px 0px 10% 0px' });
+
+    els.forEach((el) => (el.dataset.reveal === 'clip' ? media : io).observe(el));
   })();
 
   /* ---------- Story: words light up as you read ---------- */
