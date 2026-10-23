@@ -503,6 +503,11 @@
     layout();
     if (document.fonts) document.fonts.ready.then(queue);
     addEventListener('resize', queue);
+    // A late font swap rewraps the names without resizing the window
+    if ('ResizeObserver' in window) {
+      const ro = new ResizeObserver(queue);
+      items.forEach((li) => ro.observe(li));
+    }
   })();
 
   /* ---------- Lineup: portrait follows the cursor ---------- */
