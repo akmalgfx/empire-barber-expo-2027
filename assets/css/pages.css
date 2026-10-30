@@ -1,0 +1,86 @@
+/* =========================================================
+   Empire Barber Expo · Info pages (past expos, venue, FAQ)
+   Sits on top of waitlist.css + vendors.css (.vendor, .v-section,
+   .v-title, .tile, .fine, .faq). Only what those don't cover.
+   ========================================================= */
+
+.lede {
+  max-width: 62ch;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--mute);
+  text-wrap: pretty;
+}
+.lede a, .fine a, .facts a, .qa a {
+  color: var(--gold-hi);
+  text-decoration: underline;
+  text-decoration-color: var(--line-gold);
+  text-underline-offset: 3px;
+}
+
+/* ---------- Year cards ---------- */
+
+.years { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 0; padding: 0; list-style: none; }
+.year {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 22px;
+  border-radius: 18px;
+  background: var(--material);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  backdrop-filter: blur(20px) saturate(140%);
+  box-shadow: inset 0 1px 0 rgba(255, 240, 200, 0.08), inset 0 0 0 1px var(--line);
+}
+.year h3 { margin: 0; font-weight: 900; font-stretch: 62%; font-size: 2rem; line-height: 0.95; text-transform: uppercase; }
+.year p { margin: 0; font-size: 0.9375rem; line-height: 1.5; color: var(--mute); }
+.year .label { font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); }
+
+/* ---------- Photo grid ---------- */
+
+.gal { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 0; padding: 0; list-style: none; }
+.gal li { margin: 0; overflow: hidden; border-radius: 14px; box-shadow: inset 0 0 0 1px var(--line); }
+.gal img { display: block; width: 100%; height: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
+
+/* ---------- Names list ---------- */
+
+.names { display: flex; flex-wrap: wrap; gap: 8px 10px; margin: 0; padding: 0; list-style: none; }
+.names li {
+  padding: 7px 14px;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  color: var(--bone);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+/* ---------- Venue facts ---------- */
+
+.facts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 0; }
+.facts > div {
+  padding: 18px 20px;
+  border-radius: 18px;
+  background: var(--material);
+  box-shadow: inset 0 1px 0 rgba(255, 240, 200, 0.08), inset 0 0 0 1px var(--line);
+}
+.facts dt { font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); }
+.facts dd { margin: 6px 0 0; font-size: 1rem; line-height: 1.45; }
+.venue-photo { margin: 0; overflow: hidden; border-radius: 18px; box-shadow: inset 0 0 0 1px var(--line); }
+.venue-photo img { display: block; width: 100%; height: auto; }
+.hotel-card { display: grid; grid-template-columns: minmax(0, 280px) 1fr; gap: 20px; align-items: center; }
+.hotel-card img { display: block; width: 100%; height: auto; border-radius: 14px; }
+.hotel-card h3 { margin: 4px 0; font-size: 1.25rem; }
+.hotel-card p { margin: 0; color: var(--mute); line-height: 1.5; }
+.hotel-card .label { font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); }
+
+/* ---------- Full FAQ ---------- */
+
+.qa { display: flex; flex-direction: column; gap: 0; margin: 0; max-width: 760px; }
+.qa > div { padding-block: 20px; box-shadow: 0 1px 0 var(--line); }
+.qa dt { font-weight: 700; font-size: 1.0625rem; line-height: 1.35; }
+.qa dd { margin: 8px 0 0; font-size: 0.9688rem; line-height: 1.6; color: var(--mute); text-wrap: pretty; }
+
+@media (max-width: 720px) {
+  .years, .facts { grid-template-columns: 1fr; }
+  .gal { grid-template-columns: repeat(2, 1fr); }
+  .hotel-card { grid-template-columns: 1fr; }
+}

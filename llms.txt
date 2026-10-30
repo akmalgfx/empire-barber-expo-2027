@@ -32,3 +32,6 @@
 ## Key pages
 - Waitlist and event details: https://barberexpo.ca/
 - Vendor booths: https://barberexpo.ca/vendors/
+- Venue and directions: https://barberexpo.ca/venue/
+- Past expos (2025, 2026): https://barberexpo.ca/past-expos/
+- FAQ: https://barberexpo.ca/faq/
