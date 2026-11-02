@@ -128,8 +128,10 @@
     }, { threshold: 0.25 }).observe(film);
 
     // Start right away if it's already on screen; don't wait for the observer's first report
-    const r = film.getBoundingClientRect();
-    if (!userPaused && r.top < innerHeight && r.bottom > 0) play();
+    requestAnimationFrame(() => {
+      const r = film.getBoundingClientRect();
+      if (!userPaused && r.top < innerHeight && r.bottom > 0) play();
+    });
     sync();
   })();
 
