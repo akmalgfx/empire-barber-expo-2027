@@ -11,8 +11,8 @@
   const WAITLIST_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwFtcj9A4fkYdwW3phf9atlU3h77WJBPHnGCW5EkNauZqP4pgt9msn6fnEnaxzat4rO/exec';
   const INSTAGRAM_URL = 'https://www.instagram.com/empirebarberexpo/';
 
-  // Tickets drop Nov 9, 2026 at 12:00 AM Mountain Standard Time
-  const EVENT_START = new Date('2026-11-09T00:00:00-07:00').getTime();
+  // Tickets drop Nov 9, 2026 at 10:00 AM Mountain Standard Time
+  const EVENT_START = new Date('2026-11-09T10:00:00-07:00').getTime();
 
   const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const $ = (sel, root = document) => root.querySelector(sel);
