@@ -14,18 +14,11 @@ Then open http://localhost:5173.
 
 ## Pages
 
-- `/` — the coming-soon waitlist page with the countdown and Part II recap
-- `/expo-2027-preview-lyqui6/` — the full landing page, kept off the root until launch (marked `noindex`, but anyone with the link or the repo can still open it)
-- `/vendors/` — vendor info: floor plan, what's included in every booth, and the booth request form (linked from the waitlist header)
-- `/waitlist/` — redirects to `/` so links shared earlier keep working
+- `/` — the 2027 landing page: hero, lineup, schedule, tickets and venue
+- `/vendors/`, `/venue/`, `/past-expos/`, `/faq/` — supporting pages, linked from the home footer
+- `/expo-2027-preview-lyqui6/` and `/waitlist/` — redirect to `/` so links shared before launch keep working
 
-## Launch the full page
-
-Swap the two pages back: move `expo-2027-preview-lyqui6/index.html` to `index.html` (change its `../assets/` and `../vendors/` paths to `assets/` and `vendors/`, and remove the `noindex` meta), and move the waitlist to a subfolder or remove it.
-
-## Connect the waitlist
-
-The waitlist form is not connected to a service yet. Until it is, submitting shows "Sign-ups open soon" and saves nothing. To start collecting emails, create a form endpoint (for example a free form at formspree.io) and paste its URL into `WAITLIST_ENDPOINT` at the top of `assets/js/waitlist.js`.
+The pre-launch waitlist page was replaced on November 9, 2026. It is in git history (and `assets/js/waitlist.js` is no longer loaded) if it is ever needed again.
 
 ## Vendor booth requests
 
@@ -33,4 +26,4 @@ The form on `/vendors/` posts to the same Apps Script as the waitlist (`VENDOR_E
 
 ## Update links
 
-Ticket, competition, Education Day, hotel and map links live in `LINKS` at the top of `assets/js/main.js`. The ticket links (including Education Day) currently point to the 2026 Showpass event; swap in the 2027 URL when it goes live.
+Ticket, competition, Education Day, hotel and map links live in `LINKS` at the top of `assets/js/main.js`. The ticket links point to the 2027 Showpass event. The subpages (`/vendors/`, `/venue/`, `/past-expos/`, `/faq/`) and `llms.txt` also link to it directly, so update them too if the URL changes.
