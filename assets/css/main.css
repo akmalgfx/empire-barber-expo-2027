@@ -1589,8 +1589,8 @@ p, li, dd { text-wrap: pretty; }
 
 .footer {
   display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 28px;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 28px 56px;
   align-items: center;
   padding: 48px var(--gutter) calc(48px + env(safe-area-inset-bottom));
   border-top: 1px solid var(--line);
@@ -1604,6 +1604,7 @@ p, li, dd { text-wrap: pretty; }
   font-size: 13px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 .footer-brand span {
   font-weight: 500;
@@ -1614,6 +1615,7 @@ p, li, dd { text-wrap: pretty; }
 .footer-links {
   display: flex;
   flex-wrap: wrap;
+  justify-content: flex-end;
   gap: 12px 28px;
   font-size: 12px;
   font-weight: 600;
@@ -1848,6 +1850,7 @@ p, li, dd { text-wrap: pretty; }
   .venue { grid-template-columns: 1fr; }
 
   .footer { grid-template-columns: 1fr; padding-bottom: calc(100px + env(safe-area-inset-bottom)); }
+  .footer-links { justify-content: flex-start; }
 
   .mobile-cta { display: flex; }
 }
