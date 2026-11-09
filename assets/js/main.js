@@ -12,7 +12,6 @@
     tickets: 'https://www.showpass.com/the-empire-barber-expo-2027/',
     compete: 'https://www.showpass.com/the-empire-barber-expo-2027/',
     education: 'https://www.showpass.com/the-empire-barber-expo-2027/',
-    hotel: 'https://www.marriott.com/event-reservations/reservation-link.mi?id=1765828965307&key=GRP&app=resvlink',
     map: 'https://www.google.com/maps/search/?api=1&query=Big+Four+Roadhouse+Calgary',
   };
 
